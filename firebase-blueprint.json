@@ -1,0 +1,147 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "Store user accounts, roles, and saved addresses.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin", "customer"] },
+        "phone": { "type": "string" },
+        "address": { "type": "string" },
+        "avatarLetter": { "type": "string" },
+        "avatarUrl": { "type": "string" },
+        "isSuspended": { "type": "boolean" },
+        "securityPin": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "name", "email", "role"]
+    },
+    "Order": {
+      "title": "Customer Order",
+      "description": "Store customer orders and their status.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "userName": { "type": "string" },
+        "date": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "status": { "type": "string", "enum": ["Pending", "Processing", "Shipped", "Delivered", "Cancelled"] },
+        "total": { "type": "number" },
+        "payment": { "type": "string" },
+        "phone": { "type": "string" },
+        "address": { "type": "string" }
+      },
+      "required": ["id", "userEmail", "status", "total"]
+    },
+    "EnvCredentials": {
+      "title": "Environment Credentials",
+      "description": "Stores API keys and secrets for various services.",
+      "type": "object",
+      "properties": {
+        "CLOUDINARY_CLOUD_NAME": { "type": "string" },
+        "CLOUDINARY_API_KEY": { "type": "string" },
+        "CLOUDINARY_API_SECRET": { "type": "string" },
+        "GEMINI_API_KEY": { "type": "string" },
+        "FIREBASE_API_KEY": { "type": "string" },
+        "STEADFAST_API_KEY": { "type": "string" },
+        "REDX_API_TOKEN": { "type": "string" },
+        "BKASH_APP_KEY": { "type": "string" },
+        "SSLCOMMERZ_STORE_ID": { "type": "string" }
+      }
+    },
+    "NotificationConfig": {
+      "title": "Notification Configuration",
+      "description": "Stores settings for SMS and Email notifications.",
+      "type": "object",
+      "properties": {
+        "smsEnabled": { "type": "boolean" },
+        "emailEnabled": { "type": "boolean" },
+        "smsProvider": { "type": "string" },
+        "emailProvider": { "type": "string" }
+      }
+    },
+    "Product": {
+      "title": "Store Product",
+      "description": "E-commerce product data including price, stock, and media.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "price": { "type": "number" },
+        "category": { "type": "string" },
+        "stockQuantity": { "type": "number" },
+        "inStock": { "type": "boolean" },
+        "images": { "type": "array" }
+      },
+      "required": ["id", "name", "price", "category"]
+    },
+    "Category": {
+      "title": "Product Category",
+      "description": "Stores product categories and metadata.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "image": { "type": "string" },
+        "slug": { "type": "string" }
+      },
+      "required": ["id", "name", "slug"]
+    },
+    "ReturnRequest": {
+      "title": "Product Return Request",
+      "description": "Stores customer-submitted product return requests.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "orderId": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "customerName": { "type": "string" },
+        "reason": { "type": "string" },
+        "detailedReason": { "type": "string" },
+        "paymentMethod": { "type": "string" },
+        "paymentDetails": { "type": "string" },
+        "items": { "type": "array" },
+        "status": { "type": "string", "enum": ["Pending", "Approved", "Rejected", "Completed"] },
+        "images": { "type": "array" },
+        "createdAt": { "type": "string" },
+        "adminNotes": { "type": "string" }
+      },
+      "required": ["id", "orderId", "phone", "email", "customerName", "reason", "paymentMethod", "paymentDetails", "items", "status", "images"]
+    }
+  },
+  "firestore": {
+    "/users/{email}": {
+      "schema": "User",
+      "description": "User profiles indexed by lowercase email."
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Customer orders."
+    },
+    "/returns/{returnId}": {
+      "schema": "ReturnRequest",
+      "description": "Customer-submitted product return requests."
+    },
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Product catalog."
+    },
+    "/categories/{categoryId}": {
+      "schema": "Category",
+      "description": "Product categories."
+    },
+    "/site_settings/env_credentials": {
+      "schema": "EnvCredentials",
+      "description": "Master environment credentials."
+    },
+    "/site_settings/notification_gateway": {
+      "schema": "NotificationConfig",
+      "description": "Notification dispatch configuration."
+    }
+  }
+}

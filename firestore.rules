@@ -1,0 +1,120 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // -------------------------------------------------------------------------
+    // GLOBAL HELPERS
+    // -------------------------------------------------------------------------
+    
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(email) {
+      return isSignedIn() && request.auth.token.email.lower() == email.lower();
+    }
+    
+    // Admin check: verify if the user exists in the users collection with role 'admin'
+    // Note: In this app, users are indexed by email.
+    function isAdmin() {
+      return isSignedIn() && (
+        get(/databases/$(database)/documents/users/$(request.auth.token.email.lower())).data.role == 'admin'
+      );
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    // -------------------------------------------------------------------------
+    // DEFAULT DENY
+    // -------------------------------------------------------------------------
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // -------------------------------------------------------------------------
+    // USERS COLLECTION
+    // -------------------------------------------------------------------------
+    match /users/{email} {
+      // Allow users to read their own profile, or admins to read any profile
+      allow get: if isSignedIn() && (isOwner(email) || isAdmin());
+      allow list: if isAdmin();
+      
+      // Allow registration (create) for signed in users for their own email with default customer role.
+      // Must not contain any privileged keys.
+      allow create: if isSignedIn() && isOwner(email) && 
+        (incoming().role == 'customer') && 
+        !incoming().keys().hasAny(['isSuspended', 'admin', 'permissions']);
+      
+      // Allow update for owners (strictly excluding role and privilege modifications) or admins (everything)
+      allow update: if isSignedIn() && (
+        isAdmin() || 
+        (isOwner(email) && !incoming().diff(existing()).affectedKeys().hasAny(['role', 'isSuspended', 'admin', 'permissions']))
+      );
+      
+      allow delete: if isAdmin();
+    }
+
+    // -------------------------------------------------------------------------
+    // ORDERS COLLECTION
+    // -------------------------------------------------------------------------
+    match /orders/{orderId} {
+      // Read: Users can see their own orders, admins can see all
+      allow get: if isSignedIn() && (isOwner(resource.data.userEmail) || isAdmin());
+      allow list: if isSignedIn() && (isAdmin() || (resource.data.userEmail.lower() == request.auth.token.email.lower()));
+      
+      // Create: Disallow direct client writes. Orders must be created via POST /api/orders/create (server-authoritative with stock transaction).
+      allow create: if false;
+      
+      // Update: Admin only. Customer status changes/cancellations are routed via POST /api/orders/update-status.
+      allow update: if isAdmin();
+      
+      allow delete: if isAdmin();
+    }
+
+    // -------------------------------------------------------------------------
+    // RETURNS COLLECTION
+    // -------------------------------------------------------------------------
+    match /returns/{returnId} {
+      // Read: Authenticated owner or Admin
+      allow read: if isSignedIn() && (isOwner(resource.data.email) || isAdmin());
+      
+      // Create: Disallow direct client writes. Returns must be created via POST /api/returns/create (server-authoritative with real order ownership verification).
+      allow create: if false;
+      
+      // Update/Delete: Admin only
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // -------------------------------------------------------------------------
+    // PRODUCTS & CATEGORIES (Public Read, Admin Write)
+    // -------------------------------------------------------------------------
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /categories/{categoryId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // -------------------------------------------------------------------------
+    // SITE SETTINGS (Admin Only)
+    // -------------------------------------------------------------------------
+    match /site_settings/{settingId} {
+      allow read, write: if isAdmin();
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Magmati",
+  "description": "Premium Bangladeshi fashion \u0026 lifestyle brand featuring men, women, and kids collections in BDT with bilingual English and Bangla support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
