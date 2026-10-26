@@ -70,7 +70,7 @@ export const CheckoutDeliveryForm: React.FC<CheckoutDeliveryFormProps> = ({
         }
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+     
   }, [savedAddresses]);
 
   const handleSelectSavedAddress = (addr: SavedAddress) => {

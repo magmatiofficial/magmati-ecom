@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
 const darkBgs = ['bg-zinc-800', 'bg-zinc-900', 'bg-zinc-950', 'bg-black', 'bg-primary', 'bg-text-main', 'bg-neutral-800', 'bg-neutral-900', 'bg-neutral-950', 'bg-secondary'];
 const darkTexts = ['text-zinc-400', 'text-zinc-500', 'text-zinc-600', 'text-zinc-700', 'text-zinc-800', 'text-zinc-900', 'text-zinc-950', 'text-neutral-400', 'text-neutral-500', 'text-neutral-600', 'text-neutral-700', 'text-neutral-800', 'text-neutral-900', 'text-neutral-950', 'text-text-main', 'text-app-text', 'text-text-muted', 'text-app-muted', 'text-black'];
@@ -21,7 +21,7 @@ function getFiles(dir) {
 }
 
 const files = [...getFiles('app'), ...getFiles('components')];
-let matches = [];
+const matches = [];
 
 files.forEach(file => {
   const content = fs.readFileSync(file, 'utf8');

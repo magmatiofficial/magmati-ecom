@@ -14,7 +14,7 @@ import {
 import { useAuthStore } from '@/store/useAuthStore';
 import { InlineAlert } from '@/components/ui/InlineAlert';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+ 
 interface CustomerSettingsTabProps {}
 
 export const CustomerSettingsTab: React.FC<CustomerSettingsTabProps> = () => {

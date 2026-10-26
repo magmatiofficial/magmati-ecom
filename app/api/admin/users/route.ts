@@ -74,7 +74,7 @@ export async function GET(req: NextRequest) {
     }
 
     const usersRef = adminDb.collection('users');
-    let matchedUsers: Array<{ id: string; data: Record<string, unknown> }> = [];
+    const matchedUsers: Array<{ id: string; data: Record<string, unknown> }> = [];
 
     // Handle search query `q` if present
     if (searchQuery) {
