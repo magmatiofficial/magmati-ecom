@@ -1,0 +1,110 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isVerified() {
+      return isSignedIn()
+        && request.auth.token.email != null
+        && (request.auth.token.email_verified == true
+            || request.auth.token.firebase.sign_in_provider == 'google.com');
+    }
+
+    function isOwner(email) {
+      return isSignedIn() && request.auth.token.email.lower() == email.lower();
+    }
+
+    function isAdmin() {
+      return isVerified()
+        && exists(/databases/$(database)/documents/users/$(request.auth.token.email.lower()))
+        && get(/databases/$(database)/documents/users/$(request.auth.token.email.lower())).data.role == 'admin';
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Admin user management (list/role/suspend/edit/delete) is server-side only via /api/admin/users*.
+    match /users/{email} {
+      allow get: if isSignedIn() && isOwner(email);
+      allow list: if false;
+
+      allow create: if isSignedIn() && isOwner(email) &&
+        (incoming().role == 'customer') &&
+        (!('isSuspended' in incoming()) || incoming().isSuspended == false) &&
+        !incoming().keys().hasAny(['admin', 'permissions']);
+
+      allow update: if isSignedIn() && isOwner(email) && !incoming().diff(existing()).affectedKeys().hasAny(['role', 'isSuspended', 'admin', 'permissions']);
+
+      allow delete: if false;
+    }
+
+    match /orders/{orderId} {
+      allow get: if isSignedIn() && (isOwner(resource.data.userEmail) || isAdmin());
+      allow list: if isSignedIn() && (isAdmin() || (resource.data.userEmail.lower() == request.auth.token.email.lower()));
+      allow create: if false;
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // Return status/shipping/delete are server-side only via /api/admin/returns*.
+    match /returns/{returnId} {
+      allow read: if isSignedIn() && (isOwner(resource.data.email) || isAdmin());
+      allow create: if false;
+      allow update: if false;
+      allow delete: if false;
+    }
+
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /categories/{categoryId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /vouchers/{voucherId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /public_settings/{settingId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /voucher_usage/{usageId} {
+      allow read: if isAdmin();
+      allow write: if false;
+    }
+
+    match /voucher_claims/{claimId} {
+      allow read, write: if false;
+    }
+
+    match /site_settings/{settingId} {
+      // Public shared documents (readable by everyone). Every other document here
+      // (notification config, env_credentials with API keys) stays admin only.
+      allow read: if settingId in ['storefront', 'categories', 'best_deals', 'vouchers'] || isAdmin();
+      allow write: if isAdmin();
+    }
+
+    match /reviews/{reviewId} {
+      allow read, write: if false;
+    }
+  }
+}
