@@ -23,6 +23,20 @@
   @media (min-width: 1280px) { html { font-size: 17px; } }
   @media (min-width: 1600px) { html { font-size: 18px; } }
 
+  @media (max-width: 768px) {
+    html {
+      font-size: 15px;
+    }
+    :root {
+      --text-base: 15px;
+      --text-lg: 18px;
+      --text-xl: 19px;
+      --text-2xl: 20px;
+      --text-3xl: 24px;
+      --text-4xl: 26px;
+    }
+  }
+
   @media (max-width: 767px) {
     input, select, textarea {
       font-size: var(--text-input) !important;
