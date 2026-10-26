@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --port 3000",
-    "build": "next build",
+    "build": "NODE_ENV=production next build",
     "start": "next start --port 3000",
     "lint": "NEXT_DISABLE_ESLINT_WORKERS=1 next lint",
     "typecheck": "tsc --noEmit"
@@ -14,6 +14,7 @@
     "@hookform/resolvers": "^4.1.0",
     "autoprefixer": "^10.4.20",
     "class-variance-authority": "^0.7.1",
+    "cloudinary": "^2.5.1",
     "clsx": "^2.1.1",
     "firebase": "^11.4.0",
     "firebase-admin": "^14.5.0",
@@ -46,10 +47,5 @@
     "tw-animate-css": "^1.0.0",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.24.1"
-  },
-  "overrides": {
-    "jwks-rsa": {
-      "jose": "4.15.9"
-    }
   }
 }
