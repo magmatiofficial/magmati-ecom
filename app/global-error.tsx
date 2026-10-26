@@ -30,13 +30,13 @@ export default function GlobalError({
       </head>
       <body style={{ margin: 0, padding: 0, backgroundColor: '#FAFAFA', color: '#141414', fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
         <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '24px', boxSizing: 'border-box' }}>
-          <span style={{ fontSize: '11px', fontWeight: 800, color: '#D12929', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '12px' }}>
+          <span style={{ fontSize: 'var(--text-2xs)', fontWeight: 800, color: '#D12929', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '12px' }}>
             MAGMATI ATELIER
           </span>
-          <h1 style={{ fontSize: '24px', fontWeight: 700, margin: '0 0 10px 0', color: '#18181B' }}>
+          <h1 style={{ fontSize: 'var(--text-2xl)', fontWeight: 700, margin: '0 0 10px 0', color: '#18181B' }}>
             Application Update Detected
           </h1>
-          <p style={{ fontSize: '13px', color: '#71717A', maxWidth: '380px', margin: '0 0 24px 0', lineHeight: 1.6 }}>
+          <p style={{ fontSize: 'var(--text-sm)', color: '#71717A', maxWidth: '380px', margin: '0 0 24px 0', lineHeight: 1.6 }}>
             A new version of the application was deployed or refreshed. Please reload to load the latest resources.
           </p>
           <button
@@ -54,7 +54,7 @@ export default function GlobalError({
               backgroundColor: '#D12929',
               color: '#FFFFFF',
               border: 'none',
-              fontSize: '12px',
+              fontSize: 'var(--text-xs)',
               fontWeight: 700,
               textTransform: 'uppercase',
               letterSpacing: '0.08em',

@@ -139,7 +139,7 @@ export const FlashDeals = React.memo(function FlashDeals({
                   <span className="min-w-[2.25rem] sm:min-w-[3rem] text-center rounded-lg bg-black/30 border border-white/15 px-1.5 py-1 sm:px-2.5 sm:py-1.5 text-lg sm:text-2xl font-black font-mono tabular-nums text-white">
                     {formatDigit(timeLeft.hours)}
                   </span>
-                  <span className="mt-0.5 text-[10px] font-bold uppercase tracking-wide text-white/70">HRS</span>
+                  <span className="mt-0.5 text-2xs font-bold uppercase tracking-wide text-white/70">HRS</span>
                 </div>
 
                 <span className="text-white/70 font-black text-lg sm:text-2xl leading-none self-start mt-1">:</span>
@@ -148,7 +148,7 @@ export const FlashDeals = React.memo(function FlashDeals({
                   <span className="min-w-[2.25rem] sm:min-w-[3rem] text-center rounded-lg bg-black/30 border border-white/15 px-1.5 py-1 sm:px-2.5 sm:py-1.5 text-lg sm:text-2xl font-black font-mono tabular-nums text-white">
                     {formatDigit(timeLeft.minutes)}
                   </span>
-                  <span className="mt-0.5 text-[10px] font-bold uppercase tracking-wide text-white/70">MIN</span>
+                  <span className="mt-0.5 text-2xs font-bold uppercase tracking-wide text-white/70">MIN</span>
                 </div>
 
                 <span className="text-white/70 font-black text-lg sm:text-2xl leading-none self-start mt-1">:</span>
@@ -157,7 +157,7 @@ export const FlashDeals = React.memo(function FlashDeals({
                   <span className="min-w-[2.25rem] sm:min-w-[3rem] text-center rounded-lg bg-brand-gold text-zinc-900 border border-brand-gold px-1.5 py-1 sm:px-2.5 sm:py-1.5 text-lg sm:text-2xl font-black font-mono tabular-nums animate-pulse">
                     {formatDigit(timeLeft.seconds)}
                   </span>
-                  <span className="mt-0.5 text-[10px] font-bold uppercase tracking-wide text-white/70">SEC</span>
+                  <span className="mt-0.5 text-2xs font-bold uppercase tracking-wide text-white/70">SEC</span>
                 </div>
               </div>
             </div>
@@ -185,7 +185,7 @@ export const FlashDeals = React.memo(function FlashDeals({
                   <span className="min-w-[2.25rem] sm:min-w-[3rem] text-center rounded-lg bg-black/30 border border-white/15 px-1.5 py-1 sm:px-2.5 sm:py-1.5 text-lg sm:text-2xl font-black font-mono tabular-nums text-white">
                     {formatDigit(timeLeft.hours)}
                   </span>
-                  <span className="mt-0.5 text-[10px] font-bold uppercase tracking-wide text-white/70">HRS</span>
+                  <span className="mt-0.5 text-2xs font-bold uppercase tracking-wide text-white/70">HRS</span>
                 </div>
 
                 <span className="text-white/70 font-black text-lg sm:text-2xl leading-none self-start mt-1">:</span>
@@ -194,7 +194,7 @@ export const FlashDeals = React.memo(function FlashDeals({
                   <span className="min-w-[2.25rem] sm:min-w-[3rem] text-center rounded-lg bg-black/30 border border-white/15 px-1.5 py-1 sm:px-2.5 sm:py-1.5 text-lg sm:text-2xl font-black font-mono tabular-nums text-white">
                     {formatDigit(timeLeft.minutes)}
                   </span>
-                  <span className="mt-0.5 text-[10px] font-bold uppercase tracking-wide text-white/70">MIN</span>
+                  <span className="mt-0.5 text-2xs font-bold uppercase tracking-wide text-white/70">MIN</span>
                 </div>
 
                 <span className="text-white/70 font-black text-lg sm:text-2xl leading-none self-start mt-1">:</span>
@@ -203,7 +203,7 @@ export const FlashDeals = React.memo(function FlashDeals({
                   <span className="min-w-[2.25rem] sm:min-w-[3rem] text-center rounded-lg bg-brand-gold text-zinc-900 border border-brand-gold px-1.5 py-1 sm:px-2.5 sm:py-1.5 text-lg sm:text-2xl font-black font-mono tabular-nums animate-pulse">
                     {formatDigit(timeLeft.seconds)}
                   </span>
-                  <span className="mt-0.5 text-[10px] font-bold uppercase tracking-wide text-white/70">SEC</span>
+                  <span className="mt-0.5 text-2xs font-bold uppercase tracking-wide text-white/70">SEC</span>
                 </div>
               </div>
             </div>

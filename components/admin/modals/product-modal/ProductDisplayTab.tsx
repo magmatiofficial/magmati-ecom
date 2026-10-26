@@ -130,7 +130,7 @@ export const ProductDisplayTab: React.FC<ProductDisplayTabProps> = ({
       <div className="border-t border-zinc-200 pt-3">
         <span className="font-bold text-zinc-900 block text-xs mb-3">Custom Badge Toggles</span>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-          <label className="flex items-center gap-2 p-2 bg-zinc-50 rounded-xl cursor-pointer text-[11px]">
+          <label className="flex items-center gap-2 p-2 bg-zinc-50 rounded-xl cursor-pointer text-2xs">
             <input
               type="checkbox"
               checked={prodShowDiscountBadge}
@@ -138,7 +138,7 @@ export const ProductDisplayTab: React.FC<ProductDisplayTabProps> = ({
             />
             Discount %
           </label>
-          <label className="flex items-center gap-2 p-2 bg-zinc-50 rounded-xl cursor-pointer text-[11px]">
+          <label className="flex items-center gap-2 p-2 bg-zinc-50 rounded-xl cursor-pointer text-2xs">
             <input
               type="checkbox"
               checked={prodShowFlashBadge}
@@ -146,7 +146,7 @@ export const ProductDisplayTab: React.FC<ProductDisplayTabProps> = ({
             />
             Flash Deal
           </label>
-          <label className="flex items-center gap-2 p-2 bg-zinc-50 rounded-xl cursor-pointer text-[11px]">
+          <label className="flex items-center gap-2 p-2 bg-zinc-50 rounded-xl cursor-pointer text-2xs">
             <input
               type="checkbox"
               checked={prodShowTrendingBadge}
@@ -154,7 +154,7 @@ export const ProductDisplayTab: React.FC<ProductDisplayTabProps> = ({
             />
             Trending
           </label>
-          <label className="flex items-group gap-2 p-2 bg-zinc-50 rounded-xl cursor-pointer text-[11px]">
+          <label className="flex items-center gap-2 p-2 bg-zinc-50 rounded-xl cursor-pointer text-2xs">
             <input
               type="checkbox"
               checked={prodShowMallBadge}
@@ -162,7 +162,7 @@ export const ProductDisplayTab: React.FC<ProductDisplayTabProps> = ({
             />
             Brand Mall
           </label>
-          <label className="flex items-center gap-2 p-2 bg-zinc-50 rounded-xl cursor-pointer text-[11px]">
+          <label className="flex items-center gap-2 p-2 bg-zinc-50 rounded-xl cursor-pointer text-2xs">
             <input
               type="checkbox"
               checked={prodShowHotDealBadge}
@@ -170,7 +170,7 @@ export const ProductDisplayTab: React.FC<ProductDisplayTabProps> = ({
             />
             Hot Deal
           </label>
-          <label className="flex items-center gap-2 p-2 bg-zinc-50 rounded-xl cursor-pointer text-[11px]">
+          <label className="flex items-center gap-2 p-2 bg-zinc-50 rounded-xl cursor-pointer text-2xs">
             <input
               type="checkbox"
               checked={prodShowNewBadge}

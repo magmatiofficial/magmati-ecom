@@ -29,7 +29,7 @@ export const ProductInventoryTab: React.FC<ProductInventoryTabProps> = ({
       <div className="flex items-center justify-between p-3 bg-zinc-50 border border-zinc-200 rounded-2xl">
         <div>
           <span className="font-bold text-zinc-900 block text-xs">Stock Status</span>
-          <span className="text-[11px] text-zinc-500">Enable or disable purchasing for this product</span>
+          <span className="text-2xs text-zinc-500">Enable or disable purchasing for this product</span>
         </div>
         <label className="relative inline-flex items-center cursor-pointer">
           <input

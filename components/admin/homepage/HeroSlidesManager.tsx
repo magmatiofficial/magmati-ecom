@@ -51,7 +51,7 @@ export const HeroSlidesManager: React.FC<HeroSlidesManagerProps> = ({
                 <div className="flex items-center justify-center h-full text-gray-400 text-xs">No Image</div>
               )}
               {slide.badgeEn && (
-                <span className="absolute top-2 left-2 bg-rose-600 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">
+                <span className="absolute top-2 left-2 bg-rose-600 text-white text-2xs font-bold px-2 py-0.5 rounded shadow">
                   {slide.badgeEn}
                 </span>
               )}
@@ -60,7 +60,7 @@ export const HeroSlidesManager: React.FC<HeroSlidesManagerProps> = ({
               <div>
                 <h3 className="font-semibold text-gray-900 text-sm truncate">{slide.titleEn || 'Untitled Slide'}</h3>
                 <p className="text-xs text-gray-500 truncate mt-0.5">{slide.subtitleEn || 'No subtitle'}</p>
-                <p className="text-[11px] text-gray-400 mt-1">Link: {slide.buttonLink || '/shop'}</p>
+                <p className="text-2xs text-gray-400 mt-1">Link: {slide.buttonLink || '/shop'}</p>
               </div>
               <div className="flex items-center justify-end gap-2 mt-4 pt-3 border-t border-gray-200">
                 <button

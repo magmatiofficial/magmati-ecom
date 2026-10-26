@@ -345,6 +345,12 @@ export function useAccountState() {
   const [prodShowNewBadge, setProdShowNewBadge] = useState(true);
   const [prodAllowedPaymentMethods, setProdAllowedPaymentMethods] = useState<('cod' | 'bkash' | 'nagad' | 'card')[]>(['cod', 'bkash', 'nagad', 'card']);
   const [prodBestDealSectionId, setProdBestDealSectionId] = useState<string>('');
+  const [prodTaxStatus, setProdTaxStatus] = useState<'taxable' | 'non_taxable' | 'shipping_only'>('taxable');
+  const [prodTaxClass, setProdTaxClass] = useState<string>('');
+  const [prodCostPrice, setProdCostPrice] = useState<number | undefined>(undefined);
+  const [prodWholesalePrice, setProdWholesalePrice] = useState<number | undefined>(undefined);
+  const [prodWholesaleMinQty, setProdWholesaleMinQty] = useState<number | undefined>(undefined);
+  const [prodPricePerUnitLabel, setProdPricePerUnitLabel] = useState<string>('');
 
   // New Category form fields
   const [newCatName, setNewCatName] = useState('');
@@ -615,6 +621,12 @@ export function useAccountState() {
     setProdShowNewBadge(true);
     setProdAllowedPaymentMethods(['cod', 'bkash', 'nagad', 'card']);
     setProdBestDealSectionId('');
+    setProdTaxStatus('taxable');
+    setProdTaxClass('');
+    setProdCostPrice(undefined);
+    setProdWholesalePrice(undefined);
+    setProdWholesaleMinQty(undefined);
+    setProdPricePerUnitLabel('');
     setProductModalOpen(true);
   };
 
@@ -629,7 +641,7 @@ export function useAccountState() {
     setProdSpecialPrice(hasSpecialPrice ? product.price : undefined);
     setProdDescription(product.description);
     setProdImages(product.images?.length ? [...product.images] : ['']);
-    
+
     const normalizedMedia = normalizeProductMedia(product);
     setProdMedia(normalizedMedia.length ? normalizedMedia : [{ id: 'media-1', type: 'image', url: '', title: '' }]);
     setProdPreviewGifUrl(product.previewGifUrl || getProductHoverGif(product) || '');
@@ -656,6 +668,12 @@ export function useAccountState() {
     setProdShowNewBadge(product.showNewBadge ?? true);
     setProdAllowedPaymentMethods(product.allowedPaymentMethods || ['cod', 'bkash', 'nagad', 'card']);
     setProdBestDealSectionId(product.bestDealSectionId || '');
+    setProdTaxStatus(product.taxStatus || 'taxable');
+    setProdTaxClass(product.taxClass || '');
+    setProdCostPrice(product.costPrice ?? product.cost_price);
+    setProdWholesalePrice(product.wholesalePrice);
+    setProdWholesaleMinQty(product.wholesaleMinQty);
+    setProdPricePerUnitLabel(product.pricePerUnitLabel || '');
     setProductModalOpen(true);
   };
 
@@ -739,6 +757,13 @@ export function useAccountState() {
       showNewBadge: prodShowNewBadge,
       allowedPaymentMethods: prodAllowedPaymentMethods,
       bestDealSectionId: prodBestDealSectionId || undefined,
+      taxStatus: prodTaxStatus,
+      taxClass: prodTaxClass || undefined,
+      costPrice: prodCostPrice,
+      cost_price: prodCostPrice,
+      wholesalePrice: prodWholesalePrice,
+      wholesaleMinQty: prodWholesaleMinQty,
+      pricePerUnitLabel: prodPricePerUnitLabel || undefined,
     };
 
     if (isSavingProduct) return;
@@ -1226,6 +1251,18 @@ export function useAccountState() {
     setProdAllowedPaymentMethods,
     prodBestDealSectionId,
     setProdBestDealSectionId,
+    prodTaxStatus,
+    setProdTaxStatus,
+    prodTaxClass,
+    setProdTaxClass,
+    prodCostPrice,
+    setProdCostPrice,
+    prodWholesalePrice,
+    setProdWholesalePrice,
+    prodWholesaleMinQty,
+    setProdWholesaleMinQty,
+    prodPricePerUnitLabel,
+    setProdPricePerUnitLabel,
     newCatName,
     setNewCatName,
     newCatImage,

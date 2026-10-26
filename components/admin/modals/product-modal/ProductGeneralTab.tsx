@@ -1,5 +1,6 @@
 import React from 'react';
 import { CategoryItem } from '@/types';
+import { RichTextEditor } from '@/components/ui/RichTextEditor';
 
 export interface ProductGeneralTabProps {
   prodName: string;
@@ -141,13 +142,11 @@ export const ProductGeneralTab: React.FC<ProductGeneralTabProps> = ({
       <div className="space-y-2">
         <div className="grid grid-cols-1 gap-4">
           <div>
-            <label className="text-eyebrow font-bold text-zinc-700 block mb-1">Description (optional)</label>
-            <textarea
-              rows={2}
+            <label className="text-eyebrow font-bold text-zinc-700 block mb-1">Product Description (Rich Text Editor)</label>
+            <RichTextEditor
               value={prodDescription}
-              onChange={(e) => setProdDescription(e.target.value)}
-              placeholder="Details about raw material, weave, finish..."
-              className="w-full p-2.5 border border-zinc-200 rounded-xl resize-none focus:outline-hidden focus:border-primary"
+              onChange={setProdDescription}
+              placeholder="Detailed description with formatting, headings, bullet points..."
             />
           </div>
         </div>

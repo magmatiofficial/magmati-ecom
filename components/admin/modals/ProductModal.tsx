@@ -9,6 +9,7 @@ import { Product, ProductMediaItem, ProductMediaType, ProductColor } from '@/typ
 import { useCategoryStore } from '@/store/useCategoryStore';
 import { useBestDealsStore } from '@/store/useBestDealsStore';
 import { ProductGeneralTab } from './product-modal/ProductGeneralTab';
+import { ProductAttributesTab } from './product-modal/ProductAttributesTab';
 import { ProductPricingTab } from './product-modal/ProductPricingTab';
 import { ProductInventoryTab } from './product-modal/ProductInventoryTab';
 import { ProductMediaTab } from './product-modal/ProductMediaTab';
@@ -168,6 +169,8 @@ export const ProductModal: React.FC<ProductModalProps> = ({
   prodWholesalePrice, setProdWholesalePrice,
   prodWholesaleMinQty, setProdWholesaleMinQty,
   prodPricePerUnitLabel, setProdPricePerUnitLabel,
+  prodSizes, setProdSizes,
+  prodColors, setProdColors,
   activeTab = 'general',
   onSubmit,
   handleSubmit,
@@ -179,6 +182,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
 
   const tabs = [
     { id: 'general', label: 'General Info' },
+    { id: 'attributes', label: 'Attributes & Variants' },
     { id: 'pricing', label: 'Pricing' },
     { id: 'inventory', label: 'Inventory' },
     { id: 'media', label: 'Media' },
@@ -343,6 +347,14 @@ export const ProductModal: React.FC<ProductModalProps> = ({
               currentCategory={currentCategory}
               subcategoryOptions={subcategoryOptions}
               isActive={localActiveTab === 'general'}
+            />
+
+            <ProductAttributesTab
+              prodSizes={(prodSizes as string) || ''}
+              setProdSizes={setProdSizes || (() => {})}
+              prodColors={prodColors || []}
+              setProdColors={(setProdColors as any) || (() => {})}
+              isActive={localActiveTab === 'attributes'}
             />
 
             <ProductPricingTab

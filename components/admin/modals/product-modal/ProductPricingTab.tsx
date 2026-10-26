@@ -76,7 +76,10 @@ export const ProductPricingTab: React.FC<ProductPricingTabProps> = ({
         <label className="text-eyebrow font-bold text-zinc-700 block mb-1">Tax Status</label>
         <select
           value={prodTaxStatus || 'taxable'}
-          onChange={(e) => setProdTaxStatus?.(e.target.value as 'taxable' | 'non_taxable' | 'shipping_only')}
+          onChange={(e) => {
+            const next = e.currentTarget.value as 'taxable' | 'non_taxable' | 'shipping_only';
+            setProdTaxStatus?.(next);
+          }}
           className="w-full h-10 px-3 border border-zinc-200 rounded-xl bg-white focus:outline-hidden"
         >
           <option value="taxable">Taxable</option>

@@ -163,7 +163,7 @@ export const ProductsTable: React.FC<ProductsTableProps> = ({
                             <button
                               type="button"
                               onClick={() => quickAdjustStock(product.id, -1)}
-                              className="w-4 h-4 flex items-center justify-center text-[10px] text-zinc-600 hover:bg-white rounded cursor-pointer font-bold"
+                              className="w-4 h-4 flex items-center justify-center text-2xs text-zinc-600 hover:bg-white rounded cursor-pointer font-bold"
                               title="Decrease Stock"
                             >
                               -
@@ -171,7 +171,7 @@ export const ProductsTable: React.FC<ProductsTableProps> = ({
                             <button
                               type="button"
                               onClick={() => quickAdjustStock(product.id, 1)}
-                              className="w-4 h-4 flex items-center justify-center text-[10px] text-zinc-600 hover:bg-white rounded cursor-pointer font-bold"
+                              className="w-4 h-4 flex items-center justify-center text-2xs text-zinc-600 hover:bg-white rounded cursor-pointer font-bold"
                               title="Increase Stock"
                             >
                               +

@@ -445,7 +445,7 @@ export const ProductCard = React.memo(function ProductCard({
         </div>
 
         {/* Row 2: Product Name (Uniform 2-line clamp for neat alignment across all cards) */}
-        <h3 className="text-xs sm:text-[13px] font-medium text-text-main line-clamp-2 leading-snug group-hover:text-primary transition-colors min-h-[2rem] sm:min-h-[2.25rem]">
+        <h3 className="text-xs sm:text-sm font-medium text-text-main line-clamp-2 leading-snug group-hover:text-primary transition-colors min-h-[2rem] sm:min-h-[2.25rem]">
           <Link href={`/product/${product.id}`} prefetch={false} className="hover:underline text-text-main font-medium">
             {displayName}
           </Link>

@@ -115,6 +115,12 @@ export function AdminDashboard({ state }: AdminDashboardProps) {
     prodShowNewBadge, setProdShowNewBadge,
     prodAllowedPaymentMethods, setProdAllowedPaymentMethods,
     prodBestDealSectionId, setProdBestDealSectionId,
+    prodTaxStatus, setProdTaxStatus,
+    prodTaxClass, setProdTaxClass,
+    prodCostPrice, setProdCostPrice,
+    prodWholesalePrice, setProdWholesalePrice,
+    prodWholesaleMinQty, setProdWholesaleMinQty,
+    prodPricePerUnitLabel, setProdPricePerUnitLabel,
     voucherModalOpen, setVoucherModalOpen,
     editingVoucher,
     vCode, setVCode,
@@ -608,6 +614,12 @@ export function AdminDashboard({ state }: AdminDashboardProps) {
           prodShowNewBadge={prodShowNewBadge} setProdShowNewBadge={setProdShowNewBadge}
           allowedPaymentMethods={prodAllowedPaymentMethods} setAllowedPaymentMethods={setProdAllowedPaymentMethods}
           prodBestDealSectionId={prodBestDealSectionId} setProdBestDealSectionId={setProdBestDealSectionId}
+          prodTaxStatus={prodTaxStatus} setProdTaxStatus={setProdTaxStatus}
+          prodTaxClass={prodTaxClass} setProdTaxClass={setProdTaxClass}
+          prodCostPrice={prodCostPrice} setProdCostPrice={setProdCostPrice}
+          prodWholesalePrice={prodWholesalePrice} setProdWholesalePrice={setProdWholesalePrice}
+          prodWholesaleMinQty={prodWholesaleMinQty} setProdWholesaleMinQty={setProdWholesaleMinQty}
+          prodPricePerUnitLabel={prodPricePerUnitLabel} setProdPricePerUnitLabel={setProdPricePerUnitLabel}
           siteSettings={siteSettings}
           handleImageUpload={handleImageUpload}
           handleSubmit={handleProductFormSubmit}

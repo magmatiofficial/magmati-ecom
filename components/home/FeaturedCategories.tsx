@@ -135,7 +135,7 @@ export function FeaturedCategories({
                     referrerPolicy="no-referrer"
                   />
                 </div>
-                <span className="mt-1.5 w-full min-h-[2.4em] text-[11px] lg:text-xs font-semibold text-text-main text-center leading-tight line-clamp-2 break-words">
+                <span className="mt-1.5 w-full min-h-[2.4em] text-2xs lg:text-xs font-semibold text-text-main text-center leading-tight line-clamp-2 break-words">
                   {cat.name}
                 </span>
               </Link>

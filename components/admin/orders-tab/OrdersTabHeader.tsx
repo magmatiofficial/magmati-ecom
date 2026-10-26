@@ -89,7 +89,7 @@ export const OrdersTabHeader: React.FC<OrdersTabHeaderProps> = ({
             }`}
           >
             <span>{tab.label}</span>
-            <span className={`px-1.5 py-0.5 rounded-full text-[10px] ${
+            <span className={`px-1.5 py-0.5 rounded-full text-2xs ${
               adminOrderStatusFilter === tab.id ? 'bg-white/20 text-white' : 'bg-zinc-200 text-zinc-700'
             }`}>
               {tab.count}
