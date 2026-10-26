@@ -1,6 +1,8 @@
 import React from 'react';
 import { CategoryItem } from '@/types';
 import { RichTextEditor } from '@/components/ui/RichTextEditor';
+import { Input } from '@/components/ui/Input';
+import { Select } from '@/components/ui/Select';
 
 export interface ProductGeneralTabProps {
   prodName: string;
@@ -44,33 +46,30 @@ export const ProductGeneralTab: React.FC<ProductGeneralTabProps> = ({
   return (
     <div className="grid grid-cols-1 gap-4">
       <div>
-        <label className="text-eyebrow font-bold text-zinc-700 block mb-1">Product Name *</label>
-        <input
+        <Input
+          label="Product Name *"
           type="text"
           required
           value={prodName}
           onChange={(e) => setProdName(e.target.value)}
           placeholder="e.g. Royal Indigo Premium Silk Panjabi"
-          className="w-full h-10 px-3 border border-zinc-200 rounded-xl focus:outline-hidden focus:border-primary"
         />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className="text-eyebrow font-bold text-zinc-700 block mb-1">SKU Code (auto if empty)</label>
-          <input
+          <Input
+            label="SKU Code (auto if empty)"
             type="text"
             value={prodSku}
             onChange={(e) => setProdSku(e.target.value)}
             placeholder="MGM-PJ-ROYAL"
-            className="w-full h-10 px-3 border border-zinc-200 rounded-xl focus:outline-hidden focus:border-primary"
           />
         </div>
         <div>
-          <label className="text-eyebrow font-bold text-zinc-700 block mb-1">Marketplace Category *</label>
-          <select
+          <Select
+            label="Marketplace Category *"
             value={prodCategory}
             onChange={(e) => setProdCategory(e.target.value)}
-            className="w-full h-10 px-3 border border-zinc-200 rounded-xl bg-white focus:outline-hidden"
           >
             {categories.length === 0 ? (
               <option value="" disabled>
@@ -90,16 +89,15 @@ export const ProductGeneralTab: React.FC<ProductGeneralTabProps> = ({
                 ))}
               </>
             )}
-          </select>
+          </Select>
         </div>
       </div>
       <div className="grid grid-cols-1 gap-4">
         <div>
-          <label className="text-eyebrow font-bold text-zinc-700 block mb-1">Subcategory (optional)</label>
-          <select
+          <Select
+            label="Subcategory (optional)"
             value={prodSubcategory}
             onChange={(e) => setProdSubcategory(e.target.value)}
-            className="w-full h-10 px-3 border border-zinc-200 rounded-xl bg-white focus:outline-hidden"
           >
             {!currentCategory ? (
               <option value="" disabled>
@@ -126,23 +124,24 @@ export const ProductGeneralTab: React.FC<ProductGeneralTabProps> = ({
                 ))}
               </>
             )}
-          </select>
+          </Select>
         </div>
       </div>
       <div>
-        <label className="text-eyebrow font-bold text-zinc-700 block mb-1">Brand</label>
-        <input
+        <Input
+          label="Brand"
           type="text"
           value={prodBrand || ''}
           onChange={(e) => setProdBrand?.(e.target.value)}
           placeholder="e.g. Samsung"
-          className="w-full h-10 px-3 border border-zinc-200 rounded-xl focus:outline-hidden focus:border-primary"
         />
       </div>
       <div className="space-y-2">
         <div className="grid grid-cols-1 gap-4">
           <div>
-            <label className="text-eyebrow font-bold text-zinc-700 block mb-1">Product Description (Rich Text Editor)</label>
+            <label className="block text-xs font-bold uppercase tracking-wide text-zinc-700 dark:text-zinc-300 mb-1.5">
+              Product Description (Rich Text Editor)
+            </label>
             <RichTextEditor
               value={prodDescription}
               onChange={setProdDescription}
