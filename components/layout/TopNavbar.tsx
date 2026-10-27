@@ -154,7 +154,7 @@ export function TopNavbar() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onFocus={() => setSearchFocused(true)}
                 placeholder="Search for garments, electronics..."
-                className="w-full h-10 pl-9 pr-24 rounded-input bg-zinc-50 border border-zinc-200 text-xs sm:text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-hidden focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all shadow-2xs"
+                className="w-full h-10 pl-9 pr-24 rounded-input bg-zinc-50 border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 focus:outline-hidden focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all shadow-2xs"
               />
               <Search className="w-4 h-4 text-zinc-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
               {searchQuery && (

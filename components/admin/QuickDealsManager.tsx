@@ -107,7 +107,7 @@ export function QuickDealsManager() {
             value={quickDeals?.title || ''}
             onChange={(e) => setQuickDealsTitle(e.target.value)}
             placeholder="Quick Deal"
-            className="w-full rounded-lg border border-zinc-300 px-3 py-2 text-sm focus:outline-none focus:border-primary"
+            className="w-full rounded-lg border border-zinc-300 px-3 py-2 focus:outline-none focus:border-primary"
           />
           <button
             type="button"
@@ -155,7 +155,7 @@ export function QuickDealsManager() {
             readOnly
             value={buildExportSnippet()}
             rows={Math.min(16, tabs.length + 8)}
-            className="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 font-mono text-xs text-zinc-800"
+            className="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 font-mono text-zinc-800"
             onFocus={(e) => e.currentTarget.select()}
           />
         </div>
@@ -173,12 +173,12 @@ export function QuickDealsManager() {
               if (e.key === 'Enter') handleAddTab();
             }}
             placeholder="Tab label (e.g. Best Deals)"
-            className="w-full sm:flex-1 rounded-lg border border-zinc-300 px-3 py-2 text-sm focus:outline-none focus:border-primary bg-white"
+            className="w-full sm:flex-1 rounded-lg border border-zinc-300 px-3 py-2 focus:outline-none focus:border-primary bg-white"
           />
           <select
             value={newType}
             onChange={(e) => setNewType(e.target.value as 'products' | 'combos' | 'b1g1')}
-            className="rounded-lg border border-zinc-300 px-3 py-2 text-sm focus:outline-none focus:border-primary bg-white sm:w-44 cursor-pointer"
+            className="rounded-lg border border-zinc-300 px-3 py-2 focus:outline-none focus:border-primary bg-white sm:w-44 cursor-pointer"
           >
             <option value="products">Products</option>
             <option value="combos">Combo Deals</option>

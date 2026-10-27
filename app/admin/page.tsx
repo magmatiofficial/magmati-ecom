@@ -80,7 +80,7 @@ export default function AdminPage() {
                 value={adminEmailInput}
                 onChange={(e) => setAdminEmailInput(e.target.value)}
                 placeholder="admin@magmati.com"
-                className="w-full h-11 pl-10 pr-4 rounded-xl border border-zinc-700 bg-zinc-800/90 text-white placeholder:text-text-muted focus:outline-hidden focus:border-primary text-sm"
+                className="w-full h-11 pl-10 pr-4 rounded-xl border border-zinc-700 bg-zinc-800/90 text-white placeholder:text-text-muted focus:outline-hidden focus:border-primary"
               />
               <Mail className="w-4 h-4 text-text-muted absolute left-3.5 top-1/2 -translate-y-1/2" />
             </div>
@@ -97,7 +97,7 @@ export default function AdminPage() {
                 value={adminPasswordInput}
                 onChange={(e) => setAdminPasswordInput(e.target.value)}
                 placeholder="••••••••"
-                className="w-full h-11 pl-10 pr-4 rounded-xl border border-zinc-700 bg-zinc-800/90 text-white placeholder:text-text-muted focus:outline-hidden focus:border-primary text-sm"
+                className="w-full h-11 pl-10 pr-4 rounded-xl border border-zinc-700 bg-zinc-800/90 text-white placeholder:text-text-muted focus:outline-hidden focus:border-primary"
               />
               <Lock className="w-4 h-4 text-text-muted absolute left-3.5 top-1/2 -translate-y-1/2" />
             </div>

@@ -154,7 +154,7 @@ export function ReviewsTab() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder={'Search by product, customer name or review text...'}
-            className="w-full text-xs pl-9 pr-4 py-2.5 rounded-xl border border-zinc-200 focus:outline-hidden focus:border-primary focus:ring-1 focus:ring-primary"
+            className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-zinc-200 focus:outline-hidden focus:border-primary focus:ring-1 focus:ring-primary"
           />
         </div>
 
@@ -163,7 +163,7 @@ export function ReviewsTab() {
           <select
             value={ratingFilter}
             onChange={(e) => setRatingFilter(e.target.value)}
-            className="text-xs px-3 py-2.5 rounded-xl border border-zinc-200 bg-white focus:outline-hidden focus:border-primary"
+            className="px-3 py-2.5 rounded-xl border border-zinc-200 bg-white focus:outline-hidden focus:border-primary"
           >
             <option value="all">{'All Ratings'}</option>
             <option value="5">{'5 Stars'}</option>
@@ -177,7 +177,7 @@ export function ReviewsTab() {
           <select
             value={verifiedFilter}
             onChange={(e) => setVerifiedFilter(e.target.value)}
-            className="text-xs px-3 py-2.5 rounded-xl border border-zinc-200 bg-white focus:outline-hidden focus:border-primary"
+            className="px-3 py-2.5 rounded-xl border border-zinc-200 bg-white focus:outline-hidden focus:border-primary"
           >
             <option value="all">{'All Status'}</option>
             <option value="verified">{'Verified Only'}</option>

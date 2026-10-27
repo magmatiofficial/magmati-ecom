@@ -125,7 +125,7 @@ export function CategoryDrawer() {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder={'Search categories or subcategories...'}
-              className="w-full h-8.5 pl-8 pr-7 text-xs bg-white border border-zinc-200 rounded-lg text-zinc-900 placeholder:text-zinc-400 focus:outline-hidden focus:border-primary"
+              className="w-full h-8.5 pl-8 pr-7 bg-white border border-zinc-200 rounded-lg text-zinc-900 placeholder:text-zinc-400 focus:outline-hidden focus:border-primary"
             />
             <Search className="w-3.5 h-3.5 text-zinc-400 absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
             {searchTerm && (

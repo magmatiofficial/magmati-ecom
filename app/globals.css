@@ -48,9 +48,10 @@
     font-size: var(--text-input);
     line-height: var(--lh-normal, 1.5);
   }
-  input::placeholder, textarea::placeholder {
+  input::placeholder, textarea::placeholder, select::placeholder {
     color: var(--color-app-text-placeholder);
     opacity: 1;
+    font-size: var(--text-input);
   }
 
   ::-webkit-scrollbar {
@@ -1394,7 +1395,7 @@
     color: var(--color-app-text);
     border-radius: var(--radius-input);
     padding: 0.625rem 0.875rem;
-    font-size: var(--text-base);
+    font-size: var(--text-input);
     transition: var(--transition-fast);
   }
   .input-field:focus {

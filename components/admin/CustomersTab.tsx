@@ -361,7 +361,7 @@ export const CustomersTab: React.FC<CustomersTabProps> = ({
               value={adminCustomerSearch}
               onChange={(e) => setAdminCustomerSearch(e.target.value)}
               placeholder={'Exact email or phone...'}
-              className="w-full h-7.5 pl-8 pr-2.5 text-xs bg-neutral-50 border border-neutral-200 rounded-input focus:bg-white focus:outline-hidden focus:border-primary text-neutral-900"
+              className="w-full h-7.5 pl-8 pr-2.5 bg-neutral-50 border border-neutral-200 rounded-input focus:bg-white focus:outline-hidden focus:border-primary text-neutral-900"
             />
           </div>
 

@@ -201,7 +201,7 @@ function OrderTrackingContent() {
                     value={orderIdInput}
                     onChange={(e) => setOrderIdInput(e.target.value.replace(/\D/g, ''))}
                     placeholder={'e.g. 1234567890'}
-                    className="w-full h-12 pl-11 pr-4 rounded-2xl bg-zinc-50 border border-zinc-200 text-xs sm:text-sm text-zinc-900 placeholder-zinc-400 focus:outline-hidden focus:border-primary focus:bg-white transition-all font-mono font-bold"
+                    className="w-full h-12 pl-11 pr-4 rounded-2xl bg-zinc-50 border border-zinc-200 text-zinc-900 placeholder-zinc-400 focus:outline-hidden focus:border-primary focus:bg-white transition-all font-mono font-bold"
                   />
                   <Search className="w-4 h-4 text-zinc-400 absolute left-4 top-1/2 -translate-y-1/2" />
                 </div>
@@ -218,7 +218,7 @@ function OrderTrackingContent() {
                     value={phoneInput}
                     onChange={(e) => setPhoneInput(e.target.value)}
                     placeholder={'e.g. 01712XXXXXX'}
-                    className="w-full h-12 pl-11 pr-4 rounded-2xl bg-zinc-50 border border-zinc-200 text-xs sm:text-sm text-zinc-900 placeholder-zinc-400 focus:outline-hidden focus:border-primary focus:bg-white transition-all font-mono font-bold"
+                    className="w-full h-12 pl-11 pr-4 rounded-2xl bg-zinc-50 border border-zinc-200 text-zinc-900 placeholder-zinc-400 focus:outline-hidden focus:border-primary focus:bg-white transition-all font-mono font-bold"
                   />
                   <Phone className="w-4 h-4 text-zinc-400 absolute left-4 top-1/2 -translate-y-1/2" />
                 </div>
