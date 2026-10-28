@@ -19,40 +19,7 @@ interface BrandLogoProps {
 
 export function MagmatiIcon({ className = "w-8 h-8" }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 100 100"
-      className={className}
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-label="MAGMATI Brand Icon"
-    >
-      {/* Background Badge */}
-      <rect width="100" height="100" rx="22" fill="var(--color-primary)" />
-      
-      {/* Left Gold Dot */}
-      <circle cx="27" cy="52" r="4.5" fill="var(--color-accent)" />
-
-      {/* Main Stylized M Stroke */}
-      <path
-        d="M 27 52 
-           C 31 40, 41 33, 49 46 
-           L 38 71 
-           C 35 77, 42 82, 47 77 
-           L 58 52 
-           C 62 40, 71 33, 79 46 
-           L 68 71 
-           C 65 77, 72 82, 77 77 
-           L 84 52"
-        fill="none"
-        stroke="#FFFFFF"
-        strokeWidth="7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-
-      {/* Right Gold Dot */}
-      <circle cx="84" cy="52" r="4.5" fill="var(--color-accent)" />
-    </svg>
+    <img src="/public/magmati-logo.png" className={className} /≥
   );
 }
 
