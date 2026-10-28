@@ -10,7 +10,7 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: '#D12929',
     icons: [
       {
-        src: '/magmati-logo.svg',
+        src: '/magmati-logo.png',
         sizes: 'any',
         type: 'image/svg+xml',
         purpose: 'any',

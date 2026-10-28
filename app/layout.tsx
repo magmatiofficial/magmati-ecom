@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${siteUrl}/magmati-logo.svg`,
+        url: `${siteUrl}/magmati-logo.png`,
         width: 1200,
         height: 630,
         alt: 'MAGMATI Marketplace',
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     title: 'MAGMATI – Premium Online Shopping in Bangladesh',
     description: 'Shop authentic Fashion, Electronics, Home Appliances, Baby Care, and authentic products. Fast delivery across 64 districts in Bangladesh with Cash on Delivery.',
     site: '@magmati',
-    images: [`${siteUrl}/magmati-logo.svg`],
+    images: [`${siteUrl}/magmati-logo.png`],
   },
 };
 
@@ -91,7 +91,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     '@type': 'Organization',
     name: 'MAGMATI',
     url: siteUrl,
-    logo: `${siteUrl}/magmati-logo.svg`,
+    logo: `${siteUrl}/magmati-logo.png`,
     description: 'Premier multi-category online shopping marketplace in Bangladesh.',
     address: {
       '@type': 'PostalAddress',

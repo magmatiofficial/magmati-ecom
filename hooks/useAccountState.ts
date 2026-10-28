@@ -886,20 +886,20 @@ export function useAccountState() {
 
   const handleSlideFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!slideTitleEn.trim() || !slideImage.trim()) {
-      toast.error('Slide Title and Image URL are required!');
+    if (!slideImage.trim()) {
+      toast.error('Slide Banner Image is required!');
       return;
     }
     const slideData = {
-      title: slideTitleEn.trim(),
-      titleEn: slideTitleEn.trim(),
-      subtitle: slideSubtitleEn.trim(),
-      subtitleEn: slideSubtitleEn.trim(),
-      badge: slideBadgeEn.trim() || 'PROMO',
-      badgeEn: slideBadgeEn.trim() || 'PROMO',
+      title: '',
+      titleEn: '',
+      subtitle: '',
+      subtitleEn: '',
+      badge: '',
+      badgeEn: '',
       image: slideImage.trim(),
-      buttonText: slideBtnTextEn.trim() || 'Shop Now',
-      buttonTextEn: slideBtnTextEn.trim() || 'Shop Now',
+      buttonText: 'Shop Now',
+      buttonTextEn: 'Shop Now',
       buttonLink: slideBtnLink.trim() || '/shop',
     };
 
