@@ -8,6 +8,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface BrandLogoProps {
   variant?: 'full' | 'icon' | 'banner';
@@ -19,7 +20,7 @@ interface BrandLogoProps {
 
 export function MagmatiIcon({ className = "w-8 h-8" }: { className?: string }) {
   return (
-    <img src="/public/magmati-logo.png" className={className} /≥
+    <Image src="/public/magmati-logo.png" alt="Brand Logo" className={className} /≥
   );
 }
 
