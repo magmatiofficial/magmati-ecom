@@ -1,5 +1,5 @@
 import { unstable_cache } from 'next/cache';
-import { adminDb, isAdminDbReady } from '@/lib/firebaseAdmin';
+import { adminDb } from '@/lib/firebaseAdmin';
 
 export interface StorefrontData {
   categories: Array<{ id: string } & Record<string, unknown>>;
@@ -10,7 +10,7 @@ export interface StorefrontData {
 
 const cachedStorefront = unstable_cache(
   async (): Promise<StorefrontData> => {
-    if (!isAdminDbReady || !adminDb) throw new Error('adminDb unavailable');
+    if (!adminDb) throw new Error('adminDb unavailable');
 
     const [categoriesSnap, vouchersSnap, publicSettingsDoc, storefrontDoc] = await Promise.all([
       adminDb.collection('categories').get(),
@@ -51,14 +51,6 @@ const cachedStorefront = unstable_cache(
 );
 
 export async function getStorefrontData(): Promise<StorefrontData | null> {
-  if (!isAdminDbReady || !adminDb) {
-    return {
-      categories: [],
-      vouchers: [],
-      maxVouchersPerOrder: null,
-      settings: null,
-    };
-  }
   try {
     return await cachedStorefront();
   } catch (err) {

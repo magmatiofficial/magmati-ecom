@@ -20,7 +20,7 @@ export function MobileHeader() {
   const openSearch = useUIStore((state) => state.openSearch);
 
   return (
-    <header className="md:hidden sticky top-0 z-40 bg-white border-b border-zinc-200 shadow-xs gpu-smooth">
+    <header className="md:hidden sticky top-0 z-40 bg-white border-b border-zinc-200 shadow-xs">
       <div className="flex items-center justify-between px-3.5 py-2.5">
         {/* Left: Brand Logo */}
         <div className="flex items-center">

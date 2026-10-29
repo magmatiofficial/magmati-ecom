@@ -125,10 +125,9 @@ export function ProductDetails({ product }: ProductDetailsProps) {
       </div>
 
       {/* Description */}
-      <div
-        className="text-xs sm:text-sm text-app-muted leading-relaxed mb-3 font-normal prose prose-sm max-w-none"
-        dangerouslySetInnerHTML={{ __html: product.description || '' }}
-      />
+      <p className="text-xs sm:text-sm text-app-muted leading-relaxed mb-3 font-normal line-clamp-2 sm:line-clamp-3">
+        {product.description}
+      </p>
 
       {/* Variant Selector (Colors & Sizes) */}
       <ProductVariantSelector
@@ -172,7 +171,7 @@ export function ProductDetails({ product }: ProductDetailsProps) {
           variant="primary"
           onClick={handleAddToCart}
           disabled={!isAvailable}
-          className={`flex-1 sm:flex-none h-8 sm:h-9 min-h-0 py-0 px-3 sm:px-5 rounded-lg flex items-center justify-center gap-1.5 text-xs sm:text-sm font-semibold transition-all duration-200 shadow-none hover:shadow-sm active:scale-[0.98] cursor-pointer ${
+          className={`flex-1 sm:flex-none h-8 sm:h-9 min-h-0 py-0 px-3 sm:px-5 rounded-lg flex items-center justify-center gap-1.5 text-xs sm:text-[13px] font-semibold transition-all duration-200 shadow-none hover:shadow-sm active:scale-[0.98] cursor-pointer ${
             isAvailable
               ? 'bg-surface text-primary border border-primary hover:bg-primary-subtle'
               : 'bg-surface-subtle text-app-muted cursor-not-allowed shadow-none hover:bg-surface-subtle'
@@ -191,7 +190,7 @@ export function ProductDetails({ product }: ProductDetailsProps) {
           variant="secondary"
           onClick={handleBuyNow}
           disabled={!isAvailable}
-          className={`flex-1 sm:flex-none h-8 sm:h-9 min-h-0 py-0 px-3 sm:px-5 rounded-lg flex items-center justify-center text-xs sm:text-sm font-semibold transition-all duration-200 shadow-none hover:shadow-sm active:scale-[0.98] cursor-pointer ${
+          className={`flex-1 sm:flex-none h-8 sm:h-9 min-h-0 py-0 px-3 sm:px-5 rounded-lg flex items-center justify-center text-xs sm:text-[13px] font-semibold transition-all duration-200 shadow-none hover:shadow-sm active:scale-[0.98] cursor-pointer ${
             isAvailable
               ? 'bg-primary hover:bg-primary-hover text-white'
               : 'bg-surface-subtle text-app-muted cursor-not-allowed shadow-none hover:bg-surface-subtle'

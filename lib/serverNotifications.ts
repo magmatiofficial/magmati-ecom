@@ -26,15 +26,15 @@ export async function sendServerEmail(options: SendServerEmailOptions): Promise<
       return { success: false, skipped: true, reason: 'Missing recipient or content.' };
     }
 
-    const isEnabled = process.env.EMAIL_ENABLED === 'true';
-    const provider = process.env.EMAIL_PROVIDER || 'resend';
-    const apiKey = process.env.EMAIL_API_KEY || '';
-    const smtpHost = process.env.SMTP_HOST || '';
-    const smtpPort = process.env.SMTP_PORT || '587';
-    const smtpUser = process.env.SMTP_USER || '';
-    const smtpPass = process.env.SMTP_PASS || '';
-    const fromAddress = process.env.EMAIL_FROM_ADDRESS || 'orders@magmati.com';
-    const fromName = process.env.EMAIL_FROM_NAME || 'MAGMATI Lifestyle';
+    let isEnabled = process.env.EMAIL_ENABLED === 'true';
+    let provider = process.env.EMAIL_PROVIDER || 'resend';
+    let apiKey = process.env.EMAIL_API_KEY || '';
+    let smtpHost = process.env.SMTP_HOST || '';
+    let smtpPort = process.env.SMTP_PORT || '587';
+    let smtpUser = process.env.SMTP_USER || '';
+    let smtpPass = process.env.SMTP_PASS || '';
+    let fromAddress = process.env.EMAIL_FROM_ADDRESS || 'orders@magmati.com';
+    let fromName = process.env.EMAIL_FROM_NAME || 'MAGMATI Lifestyle';
 
     if (!isEnabled) {
       return { success: true, skipped: true, reason: 'Email notification service disabled.' };
@@ -115,10 +115,10 @@ export async function sendServerSms(options: SendServerSmsOptions): Promise<{ su
       return { success: false, skipped: true, reason: 'Missing phone or message.' };
     }
 
-    const isEnabled = process.env.SMS_ENABLED === 'true';
-    const provider = process.env.SMS_PROVIDER || 'greenweb';
-    const apiKey = process.env.SMS_API_KEY || '';
-    const senderId = process.env.SMS_SENDER_ID || 'MAGMATI';
+    let isEnabled = process.env.SMS_ENABLED === 'true';
+    let provider = process.env.SMS_PROVIDER || 'greenweb';
+    let apiKey = process.env.SMS_API_KEY || '';
+    let senderId = process.env.SMS_SENDER_ID || 'MAGMATI';
 
     if (!isEnabled || !apiKey || apiKey.trim() === '') {
       return { success: true, skipped: true, reason: 'SMS service disabled or not configured.' };

@@ -641,7 +641,7 @@ export function useAccountState() {
     setProdSpecialPrice(hasSpecialPrice ? product.price : undefined);
     setProdDescription(product.description);
     setProdImages(product.images?.length ? [...product.images] : ['']);
-
+    
     const normalizedMedia = normalizeProductMedia(product);
     setProdMedia(normalizedMedia.length ? normalizedMedia : [{ id: 'media-1', type: 'image', url: '', title: '' }]);
     setProdPreviewGifUrl(product.previewGifUrl || getProductHoverGif(product) || '');
@@ -668,12 +668,12 @@ export function useAccountState() {
     setProdShowNewBadge(product.showNewBadge ?? true);
     setProdAllowedPaymentMethods(product.allowedPaymentMethods || ['cod', 'bkash', 'nagad', 'card']);
     setProdBestDealSectionId(product.bestDealSectionId || '');
-    setProdTaxStatus(product.taxStatus || 'taxable');
-    setProdTaxClass(product.taxClass || '');
-    setProdCostPrice(product.costPrice ?? product.cost_price);
-    setProdWholesalePrice(product.wholesalePrice);
-    setProdWholesaleMinQty(product.wholesaleMinQty);
-    setProdPricePerUnitLabel(product.pricePerUnitLabel || '');
+    setProdTaxStatus((product as any).taxStatus || 'taxable');
+    setProdTaxClass((product as any).taxClass || '');
+    setProdCostPrice(product.cost_price ?? (product as any).costPrice);
+    setProdWholesalePrice((product as any).wholesalePrice);
+    setProdWholesaleMinQty((product as any).wholesaleMinQty);
+    setProdPricePerUnitLabel((product as any).pricePerUnitLabel || '');
     setProductModalOpen(true);
   };
 
@@ -757,10 +757,9 @@ export function useAccountState() {
       showNewBadge: prodShowNewBadge,
       allowedPaymentMethods: prodAllowedPaymentMethods,
       bestDealSectionId: prodBestDealSectionId || undefined,
+      cost_price: prodCostPrice,
       taxStatus: prodTaxStatus,
       taxClass: prodTaxClass || undefined,
-      costPrice: prodCostPrice,
-      cost_price: prodCostPrice,
       wholesalePrice: prodWholesalePrice,
       wholesaleMinQty: prodWholesaleMinQty,
       pricePerUnitLabel: prodPricePerUnitLabel || undefined,
@@ -886,20 +885,20 @@ export function useAccountState() {
 
   const handleSlideFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!slideImage.trim()) {
-      toast.error('Slide Banner Image is required!');
+    if (!slideTitleEn.trim() || !slideImage.trim()) {
+      toast.error('Slide Title and Image URL are required!');
       return;
     }
     const slideData = {
-      title: '',
-      titleEn: '',
-      subtitle: '',
-      subtitleEn: '',
-      badge: '',
-      badgeEn: '',
+      title: slideTitleEn.trim(),
+      titleEn: slideTitleEn.trim(),
+      subtitle: slideSubtitleEn.trim(),
+      subtitleEn: slideSubtitleEn.trim(),
+      badge: slideBadgeEn.trim() || 'PROMO',
+      badgeEn: slideBadgeEn.trim() || 'PROMO',
       image: slideImage.trim(),
-      buttonText: 'Shop Now',
-      buttonTextEn: 'Shop Now',
+      buttonText: slideBtnTextEn.trim() || 'Shop Now',
+      buttonTextEn: slideBtnTextEn.trim() || 'Shop Now',
       buttonLink: slideBtnLink.trim() || '/shop',
     };
 

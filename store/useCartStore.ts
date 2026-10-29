@@ -161,7 +161,7 @@ export const useCartStore = create<CartState>()(
               !item.isComboItem
           );
 
-          const updatedItems = [...state.items];
+          let updatedItems = [...state.items];
           if (existingIndex > -1) {
             updatedItems[existingIndex].quantity += quantity;
             updatedItems[existingIndex].selected = true;
@@ -290,7 +290,7 @@ export const useCartStore = create<CartState>()(
 
           const comboPrice = combo.comboPrice;
           set((state) => {
-            const updatedItems = [...state.items];
+            let updatedItems = [...state.items];
             const allocatedPrices = allocateComboPrices(comboProducts, comboPrice);
             comboProducts.forEach((pair: any, idx: number) => {
               const existingIndex = updatedItems.findIndex(

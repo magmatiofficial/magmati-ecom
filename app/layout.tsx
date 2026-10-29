@@ -18,7 +18,6 @@ const siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://magmati.com';
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  viewportFit: 'cover',
   themeColor: '#D12929',
 };
 

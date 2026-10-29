@@ -191,11 +191,7 @@ export const CustomerVouchersTab: React.FC<CustomerVouchersTabProps> = ({
                       try {
                         const res = await claimVoucher(code, currentUserEmail);
                         if (res) {
-                          if (res.success) {
-                            toast.success(res.message);
-                          } else {
-                            toast.error(res.message);
-                          }
+                          res.success ? toast.success(res.message) : toast.error(res.message);
                         }
                       } finally {
                         setClaimingCodes((prev) => ({ ...prev, [code]: false }));

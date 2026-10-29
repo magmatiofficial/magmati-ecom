@@ -16,7 +16,6 @@
   html, body {
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
-    overscroll-behavior-y: none;
     -webkit-text-size-adjust: 100%;
   }
 
@@ -865,7 +864,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    overflow-x: hidden;
+    overflow-x: clip;
     min-height: 100vh;
     background-color: var(--color-app-bg);
     color: var(--color-app-text);

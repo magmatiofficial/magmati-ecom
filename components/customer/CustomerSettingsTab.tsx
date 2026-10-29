@@ -14,7 +14,7 @@ import {
 import { useAuthStore } from '@/store/useAuthStore';
 import { InlineAlert } from '@/components/ui/InlineAlert';
 
- 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface CustomerSettingsTabProps {}
 
 export const CustomerSettingsTab: React.FC<CustomerSettingsTabProps> = () => {
@@ -113,7 +113,7 @@ export const CustomerSettingsTab: React.FC<CustomerSettingsTabProps> = () => {
                   value={currentPassword}
                   onChange={(e) => setCurrentPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full h-10 px-3 pr-9 bg-white border border-zinc-200 rounded-xl focus:outline-hidden focus:border-primary"
+                  className="w-full h-10 px-3 pr-9 text-xs bg-white border border-zinc-200 rounded-xl focus:outline-hidden focus:border-primary"
                 />
                 <button
                   type="button"
@@ -137,7 +137,7 @@ export const CustomerSettingsTab: React.FC<CustomerSettingsTabProps> = () => {
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
                   placeholder="Min 4 characters"
-                  className="w-full h-10 px-3 pr-9 bg-white border border-zinc-200 rounded-xl focus:outline-hidden focus:border-primary"
+                  className="w-full h-10 px-3 pr-9 text-xs bg-white border border-zinc-200 rounded-xl focus:outline-hidden focus:border-primary"
                 />
                 <button
                   type="button"
@@ -161,7 +161,7 @@ export const CustomerSettingsTab: React.FC<CustomerSettingsTabProps> = () => {
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   placeholder="Repeat new password"
-                  className="w-full h-10 px-3 pr-9 bg-white border border-zinc-200 rounded-xl focus:outline-hidden focus:border-primary"
+                  className="w-full h-10 px-3 pr-9 text-xs bg-white border border-zinc-200 rounded-xl focus:outline-hidden focus:border-primary"
                 />
                 <button
                   type="button"

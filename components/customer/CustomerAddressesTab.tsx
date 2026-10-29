@@ -317,7 +317,7 @@ export const CustomerAddressesTab: React.FC<CustomerAddressesTabProps> = ({
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   placeholder="e.g. Home, Office, Farmhouse"
-                  className="w-full h-10 px-3 bg-zinc-50 border border-zinc-200 rounded-xl focus:bg-white focus:outline-hidden focus:border-primary font-sans"
+                  className="w-full h-10 px-3 text-xs bg-zinc-50 border border-zinc-200 rounded-xl focus:bg-white focus:outline-hidden focus:border-primary font-sans"
                 />
               </div>
 
@@ -331,7 +331,7 @@ export const CustomerAddressesTab: React.FC<CustomerAddressesTabProps> = ({
                   value={recipientName}
                   onChange={(e) => setRecipientName(e.target.value)}
                   placeholder="e.g. Asif Rahman"
-                  className="w-full h-10 px-3 bg-zinc-50 border border-zinc-200 rounded-xl focus:bg-white focus:outline-hidden focus:border-primary font-sans"
+                  className="w-full h-10 px-3 text-xs bg-zinc-50 border border-zinc-200 rounded-xl focus:bg-white focus:outline-hidden focus:border-primary font-sans"
                 />
               </div>
 
@@ -345,7 +345,7 @@ export const CustomerAddressesTab: React.FC<CustomerAddressesTabProps> = ({
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="01712345678"
-                  className="w-full h-10 px-3 bg-zinc-50 border border-zinc-200 rounded-xl focus:bg-white focus:outline-hidden focus:border-primary font-sans font-mono"
+                  className="w-full h-10 px-3 text-xs bg-zinc-50 border border-zinc-200 rounded-xl focus:bg-white focus:outline-hidden focus:border-primary font-sans font-mono"
                 />
               </div>
 
@@ -357,7 +357,7 @@ export const CustomerAddressesTab: React.FC<CustomerAddressesTabProps> = ({
                 <select
                   value={districtId}
                   onChange={(e) => setDistrictId(e.target.value)}
-                  className="w-full h-10 px-3 bg-zinc-50 border border-zinc-200 rounded-xl focus:bg-white focus:outline-hidden focus:border-primary font-sans font-medium text-zinc-900 cursor-pointer"
+                  className="w-full h-10 px-3 text-xs bg-zinc-50 border border-zinc-200 rounded-xl focus:bg-white focus:outline-hidden focus:border-primary font-sans font-medium text-zinc-900 cursor-pointer"
                 >
                   {BANGLADESH_DISTRICTS.map((d) => (
                     <option key={d.id} value={d.id}>
@@ -380,7 +380,7 @@ export const CustomerAddressesTab: React.FC<CustomerAddressesTabProps> = ({
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
                   placeholder="e.g. House 24, Road 11, Block D, Banani, Dhaka"
-                  className="w-full p-3 bg-zinc-50 border border-zinc-200 rounded-xl focus:bg-white focus:outline-hidden focus:border-primary resize-none font-sans"
+                  className="w-full p-3 text-xs bg-zinc-50 border border-zinc-200 rounded-xl focus:bg-white focus:outline-hidden focus:border-primary resize-none font-sans"
                 />
               </div>
 

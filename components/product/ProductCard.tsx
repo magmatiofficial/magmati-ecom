@@ -20,7 +20,6 @@ import { useWishlistStore } from '@/store/useWishlistStore';
 import { useSiteSettings } from '@/hooks/useSiteSettings';
 import { useHydrated } from '@/hooks/useHydrated';
 import { formatBDT } from '@/lib/formatCurrency';
-import { Button } from '@/components/ui/Button';
 import { 
   normalizeProductMedia, 
   getProductHoverGif, 
@@ -208,20 +207,8 @@ export const ProductCard = React.memo(function ProductCard({
             </div>
 
             {/* Product Title (2-Line Clamp) */}
-            <h3 className="text-xs sm:text-sm md:text-base font-medium text-text-main group-hover:text-primary transition-colors leading-snug min-h-[2rem] sm:min-h-[2.25rem]">
-              <Link
-                href={`/product/${product.id}`}
-                prefetch={false}
-                className="hover:underline font-medium block"
-                style={{
-                  display: '-webkit-box',
-                  WebkitLineClamp: 2,
-                  WebkitBoxOrient: 'vertical',
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                  maxHeight: '2.8rem',
-                }}
-              >
+            <h3 className="text-xs sm:text-sm md:text-base font-medium text-text-main group-hover:text-primary transition-colors leading-relaxed line-clamp-2">
+              <Link href={`/product/${product.id}`} prefetch={false} className="hover:underline font-medium">
                 {displayName}
               </Link>
             </h3>
@@ -280,13 +267,11 @@ export const ProductCard = React.memo(function ProductCard({
             </div>
 
             {/* Cart Button */}
-            <Button
+            <button
               type="button"
               disabled={!inStock}
               onClick={handleAddToCart}
-              variant={added ? 'success' : 'dark'}
-              size="sm"
-              className={`h-7 sm:h-8.5 px-3 sm:px-4 rounded-[var(--radius-button)] font-bold text-2xs sm:text-xs flex items-center gap-1.5 transition-all active:scale-95 cursor-pointer shrink-0 ${
+              className={`h-7 sm:h-8.5 px-3 sm:px-4 rounded-[var(--radius-button)] font-bold text-2xs sm:text-xs flex items-center gap-1.5 transition-all active:scale-95 cursor-pointer shrink-0 disabled:opacity-50 disabled:cursor-not-allowed ${
                 added
                   ? 'bg-success text-white'
                   : 'bg-surface-dark hover:bg-primary text-white'
@@ -303,7 +288,7 @@ export const ProductCard = React.memo(function ProductCard({
                   <span>{'Add to Cart'}</span>
                 </>
               )}
-            </Button>
+            </button>
           </div>
         </div>
       </article>
@@ -410,22 +395,20 @@ export const ProductCard = React.memo(function ProductCard({
         </div>
 
         {/* Top-Right: Wishlist Button */}
-        <Button
+        <button
           type="button"
           onClick={handleToggleWishlist}
           aria-label={inWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
-          variant={inWishlist ? 'primary' : 'outline'}
-          size="icon"
           className={`absolute top-2 right-2 z-20 w-7.5 h-7.5 rounded-full border transition-all duration-200 flex items-center justify-center cursor-pointer active:scale-90 ${
-            inWishlist
-              ? 'bg-primary border-primary text-white shadow-xs'
+            inWishlist 
+              ? 'bg-primary border-primary text-white shadow-xs' 
               : 'bg-white/90 backdrop-blur-xs hover:bg-white border-border-color text-text-muted hover:text-primary shadow-2xs'
           }`}
         >
-          <Heart
-            className={`w-3.5 h-3.5 transition-transform ${inWishlist ? 'fill-current scale-105' : ''}`}
+          <Heart 
+            className={`w-3.5 h-3.5 transition-transform ${inWishlist ? 'fill-current scale-105' : ''}`} 
           />
-        </Button>
+        </button>
 
         {/* Bottom Swatches overlay if multi-colors available */}
         {product.colors && product.colors.length > 1 && (
@@ -462,17 +445,8 @@ export const ProductCard = React.memo(function ProductCard({
         </div>
 
         {/* Row 2: Product Name (Uniform 2-line clamp for neat alignment across all cards) */}
-        <h3
-          className="text-xs sm:text-sm font-medium text-text-main group-hover:text-primary transition-colors leading-snug"
-          style={{
-            display: '-webkit-box',
-            WebkitLineClamp: 2,
-            WebkitBoxOrient: 'vertical',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-          }}
-        >
-          <Link href={`/product/${product.id}`} prefetch={false} className="hover:underline hover:text-primary text-text-main font-medium">
+        <h3 className="text-xs sm:text-[13px] font-medium text-text-main line-clamp-2 leading-relaxed group-hover:text-primary transition-colors min-h-[3em]">
+          <Link href={`/product/${product.id}`} prefetch={false} className="hover:underline text-text-main font-medium">
             {displayName}
           </Link>
         </h3>
@@ -498,14 +472,12 @@ export const ProductCard = React.memo(function ProductCard({
           </div>
 
           {/* Professional Action Button */}
-          <Button
+          <button
             type="button"
             disabled={!inStock}
             onClick={handleAddToCart}
             aria-label={added ? 'Added to cart' : 'Add to cart'}
-            variant={added ? 'success' : 'dark'}
-            size="sm"
-            className={`h-7 sm:h-7.5 px-2.5 rounded-[var(--radius-button)] font-bold text-2xs sm:text-xs flex items-center gap-1 transition-all duration-200 cursor-pointer shrink-0 active:scale-95 ${
+            className={`h-7 sm:h-7.5 px-2.5 rounded-[var(--radius-button)] font-bold text-2xs sm:text-xs flex items-center gap-1 transition-all duration-200 cursor-pointer shrink-0 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed ${
               added
                 ? 'bg-success text-white'
                 : 'bg-surface-dark hover:bg-primary text-white'
@@ -522,7 +494,7 @@ export const ProductCard = React.memo(function ProductCard({
                 <span>{'Add'}</span>
               </>
             )}
-          </Button>
+          </button>
         </div>
       </div>
     </article>

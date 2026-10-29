@@ -197,48 +197,50 @@ export function AppLayout({ children }: AppLayoutProps) {
   }, [isAdminPage, pathname]);
 
   return (
-    <div className="flex flex-col min-h-dvh bg-app-bg">
-      {currentUser?.impersonatingFromAdminEmail && (
-        <div className="bg-amber-400 text-zinc-950 font-bold text-xs py-2.5 px-4 sticky top-0 z-50 flex items-center justify-between shadow-md border-b border-amber-500 font-sans">
-          <div className="flex items-center gap-2">
-            <ShieldAlert className="w-4 h-4 text-zinc-950 animate-pulse shrink-0" />
-            <span>
-              {`ADMIN ACT-AS IMPERSONATION MODE: Logged in as customer "${currentUser.name}" (${currentUser.email}).`}
-            </span>
+    <>
+      <div className="flex flex-col min-h-screen bg-app-bg">
+        {currentUser?.impersonatingFromAdminEmail && (
+          <div className="bg-amber-400 text-zinc-950 font-bold text-xs py-2.5 px-4 sticky top-0 z-50 flex items-center justify-between shadow-md border-b border-amber-500 font-sans">
+            <div className="flex items-center gap-2">
+              <ShieldAlert className="w-4 h-4 text-zinc-950 animate-pulse shrink-0" />
+              <span>
+                {`ADMIN ACT-AS IMPERSONATION MODE: Logged in as customer "${currentUser.name}" (${currentUser.email}).`}
+              </span>
+            </div>
+            <button
+              onClick={() => {
+                exitImpersonation();
+              }}
+              className="px-3 py-1 bg-zinc-950 text-white rounded-lg hover:bg-zinc-800 transition-colors flex items-center gap-1 font-extrabold cursor-pointer text-2xs"
+            >
+              <ArrowLeftRight className="w-3 h-3" />
+              <span>{'Exit Act-As'}</span>
+            </button>
           </div>
-          <button
-            onClick={() => {
-              exitImpersonation();
-            }}
-            className="px-3 py-1 bg-zinc-950 text-white rounded-lg hover:bg-zinc-800 transition-colors flex items-center gap-1 font-extrabold cursor-pointer text-2xs"
-          >
-            <ArrowLeftRight className="w-3 h-3" />
-            <span>{'Exit Act-As'}</span>
-          </button>
-        </div>
-      )}
-      <DynamicThemeStyles />
-      {/* Top Loading Progress Bar for Instant Page Navigation Feedback */}
-      <LoadingBar />
+        )}
+        <DynamicThemeStyles />
+        {/* Top Loading Progress Bar for Instant Page Navigation Feedback */}
+        <LoadingBar />
 
-      {/* Floating Auto-Hide Overlay Scroll Indicator */}
-      <AutoScrollIndicator />
+        {/* Floating Auto-Hide Overlay Scroll Indicator */}
+        <AutoScrollIndicator />
 
-      {/* Top Navbar (Desktop) - Hidden ONLY on Admin Dashboard */}
-      {!isAdminPage && <TopNavbar />}
+        {/* Top Navbar (Desktop) - Hidden ONLY on Admin Dashboard */}
+        {!isAdminPage && <TopNavbar />}
 
-      {/* Mobile Top Header - Hidden ONLY on Admin Dashboard */}
-      {!isAdminPage && <MobileHeader />}
+        {/* Mobile Top Header - Hidden ONLY on Admin Dashboard */}
+        {!isAdminPage && <MobileHeader />}
 
-      {/* Main Page Content - pb-20 on mobile (except admin pages) */}
-      <main className={`flex-1 w-full ${isAdminPage ? 'pb-0' : 'pb-20 md:pb-0'}`}>
-        {children}
-      </main>
+        {/* Main Page Content - pb-20 on mobile (except admin pages) */}
+        <main className={`flex-1 w-full ${isAdminPage ? 'pb-0' : 'pb-20 md:pb-0'}`}>
+          {children}
+        </main>
 
-      {/* Footer - Hidden ONLY on Admin Dashboard */}
-      {!isAdminPage && <Footer />}
+        {/* Footer - Hidden ONLY on Admin Dashboard */}
+        {!isAdminPage && <Footer />}
+      </div>
 
-      {/* Mobile Native Bottom Navigation Bar - Hidden on Admin Dashboard */}
+      {/* Mobile Native Bottom Navigation Bar - Standalone fixed overlay outside page container */}
       {!isAdminPage && <MobileBottomNav />}
 
       {/* Global Interactive Drawers & Modals (Pure CSS transitions, zero lag) */}
@@ -249,6 +251,6 @@ export function AppLayout({ children }: AppLayoutProps) {
 
       {/* Global notifications */}
       <Toaster />
-    </div>
+    </>
   );
 }

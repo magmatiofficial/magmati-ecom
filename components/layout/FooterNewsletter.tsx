@@ -85,7 +85,7 @@ export const FooterNewsletter: React.FC<FooterNewsletterProps> = () => {
                     value={emailInput}
                     onChange={(e) => setEmailInput(e.target.value)}
                     placeholder={'Enter your email address...'}
-                    className="w-full h-12 px-4 rounded-xl border border-zinc-700 bg-zinc-900/90 text-white placeholder:text-zinc-500 font-medium focus:outline-hidden focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all shadow-inner"
+                    className="w-full h-12 px-4 rounded-xl border border-zinc-700 bg-zinc-900/90 text-white placeholder:text-zinc-500 text-xs sm:text-sm font-medium focus:outline-hidden focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all shadow-inner"
                   />
                 </div>
                 <Button
