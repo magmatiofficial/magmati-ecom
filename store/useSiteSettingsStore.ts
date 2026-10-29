@@ -134,8 +134,6 @@ export interface SiteSettings {
   returnPolicyNotes: string;
 
   heroSlides: HeroSlideConfig[];
-  bannerLayoutMode: 'hero_only' | 'hero_plus_one_small' | 'hero_plus_two_smalls';
-  heroAutoPlayIntervalSeconds: number;
   sectionLayouts: HomeSectionConfig[];
   smallBanner1?: SmallBannerConfig;
   smallBanner2?: SmallBannerConfig;
@@ -283,8 +281,6 @@ const defaultSettings = {
   unboxingNoticeText: '📢 Upon receiving, unbox immediately and take a clear photo of the product next to the printed invoice. This photo is strictly REQUIRED to submit a return application.',
   returnPolicyNotes: 'Items must be unused, in original packaging with tags intact. Refunds will be disbursed within 24-48 hours after courier pickup verification.',
 
-  bannerLayoutMode: 'hero_only' as const,
-  heroAutoPlayIntervalSeconds: 5,
   heroSlides: defaultHeroSlides,
   sectionLayouts: defaultSectionLayouts,
   combos: [

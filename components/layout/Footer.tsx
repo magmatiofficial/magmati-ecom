@@ -151,22 +151,24 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/shipping-policy"
-                  className="hover:text-primary transition-colors flex items-center gap-1"
+                <button
+                  type="button"
+                  onClick={() => setActivePolicy('shipping')}
+                  className="hover:text-primary transition-colors flex items-center gap-1 text-left cursor-pointer"
                 >
                   <ChevronRight className="w-3 h-3 text-zinc-400" />
                   <span>{'Shipping Rates & Timelines'}</span>
-                </Link>
+                </button>
               </li>
               <li>
-                <Link
-                  href="/refund-policy"
-                  className="hover:text-primary transition-colors flex items-center gap-1"
+                <button
+                  type="button"
+                  onClick={() => setActivePolicy('returns')}
+                  className="hover:text-primary transition-colors flex items-center gap-1 text-left cursor-pointer"
                 >
                   <ChevronRight className="w-3 h-3 text-zinc-400" />
                   <span>{'7-Day Return & Replacement'}</span>
-                </Link>
+                </button>
               </li>
               <li>
                 <button
@@ -179,22 +181,24 @@ export function Footer() {
                 </button>
               </li>
               <li>
-                <Link
-                  href="/privacy"
-                  className="hover:text-primary transition-colors flex items-center gap-1"
+                <button
+                  type="button"
+                  onClick={() => setActivePolicy('privacy')}
+                  className="hover:text-primary transition-colors flex items-center gap-1 text-left cursor-pointer"
                 >
                   <ChevronRight className="w-3 h-3 text-zinc-400" />
                   <span>{'Privacy & Security Standards'}</span>
-                </Link>
+                </button>
               </li>
               <li>
-                <Link
-                  href="/terms"
-                  className="hover:text-primary transition-colors flex items-center gap-1"
+                <button
+                  type="button"
+                  onClick={() => setActivePolicy('terms')}
+                  className="hover:text-primary transition-colors flex items-center gap-1 text-left cursor-pointer"
                 >
                   <ChevronRight className="w-3 h-3 text-zinc-400" />
                   <span>{'Terms & Consumer Rights'}</span>
-                </Link>
+                </button>
               </li>
             </ul>
           </div>

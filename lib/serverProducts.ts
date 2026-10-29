@@ -1,11 +1,11 @@
 import { unstable_cache } from 'next/cache';
-import { adminDb, isAdminDbReady } from '@/lib/firebaseAdmin';
+import { adminDb } from '@/lib/firebaseAdmin';
 import { normalizeServerProduct } from '@/lib/normalizeProduct';
 import { Product } from '@/types';
 
 const cachedProducts = unstable_cache(
   async () => {
-    if (!isAdminDbReady || !adminDb) throw new Error('adminDb unavailable');
+    if (!adminDb) throw new Error('adminDb unavailable');
     const snap = await adminDb.collection('products').get();
     return JSON.parse(JSON.stringify(snap.docs.map((d) => normalizeServerProduct(d.data(), d.id)))) as Product[];
   },
@@ -14,9 +14,6 @@ const cachedProducts = unstable_cache(
 );
 
 export async function getProducts(): Promise<Product[]> {
-  if (!isAdminDbReady || !adminDb) {
-    return [];
-  }
   try {
     return await cachedProducts();
   } catch (err) {

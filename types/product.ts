@@ -100,12 +100,6 @@ export interface Product {
   short_description?: string;
   key_features?: string[];
   cost_price?: number;
-  taxStatus?: 'taxable' | 'non_taxable' | 'shipping_only';
-  taxClass?: string;
-  costPrice?: number;
-  wholesalePrice?: number;
-  wholesaleMinQty?: number;
-  pricePerUnitLabel?: string;
   weight?: number;
   weight_unit?: 'g' | 'kg';
   dimensions_length?: number;

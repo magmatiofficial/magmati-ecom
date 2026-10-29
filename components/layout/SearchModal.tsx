@@ -127,7 +127,7 @@ export function SearchModal() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={'Search for products or brands...'}
-                className="w-full h-11 sm:h-12 pl-11 pr-10 bg-zinc-50 hover:bg-zinc-100/80 focus:bg-white rounded-xl font-medium text-zinc-900 placeholder:text-zinc-400 focus:outline-hidden border border-zinc-200 focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all"
+                className="w-full h-11 sm:h-12 pl-11 pr-10 bg-zinc-50 hover:bg-zinc-100/80 focus:bg-white rounded-xl text-xs sm:text-sm font-medium text-zinc-900 placeholder:text-zinc-400 focus:outline-hidden border border-zinc-200 focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all"
               />
               {searchQuery && (
                 <button

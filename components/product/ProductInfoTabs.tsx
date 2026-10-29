@@ -55,18 +55,11 @@ export const ProductInfoTabs: React.FC<ProductInfoTabsProps> = ({
 
       <div className="py-4 text-xs text-app-muted leading-relaxed">
         {activeTab === 'details' && (
-          product.description ? (
-            <div
-              className="prose prose-sm max-w-none text-app-muted leading-relaxed"
-              dangerouslySetInnerHTML={{ __html: product.description }}
-            />
-          ) : (
-            <ul className="list-disc list-inside space-y-1.5">
-              {((product.details) || []).map((detail) => (
-                <li key={detail}>{detail}</li>
-              ))}
-            </ul>
-          )
+          <ul className="list-disc list-inside space-y-1.5">
+            {((product.details) || []).map((detail) => (
+              <li key={detail}>{detail}</li>
+            ))}
+          </ul>
         )}
         {activeTab === 'specs' && (
           <div className="space-y-1.5">

@@ -601,7 +601,7 @@ export const useAuthStore = create<AuthState>()(
         const { currentUser, users } = get();
         if (!currentUser) return;
 
-        const currentAddresses = currentUser.savedAddresses ? [...currentUser.savedAddresses] : [];
+        let currentAddresses = currentUser.savedAddresses ? [...currentUser.savedAddresses] : [];
 
         // If no saved addresses array exists yet, but a single profile address exists, convert it into the first saved address card
         if (currentAddresses.length === 0 && currentUser.address) {

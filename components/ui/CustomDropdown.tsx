@@ -205,7 +205,7 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     placeholder="Search..."
-                    className="w-full h-8 pl-8 pr-7 bg-zinc-50 border border-zinc-200/80 rounded-lg focus:outline-hidden focus:border-primary focus:bg-white transition-colors"
+                    className="w-full h-8 pl-8 pr-7 text-xs bg-zinc-50 border border-zinc-200/80 rounded-lg focus:outline-hidden focus:border-primary focus:bg-white transition-colors"
                   />
                   {searchTerm && (
                     <button
