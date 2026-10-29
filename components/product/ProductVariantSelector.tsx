@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Check } from 'lucide-react';
+import { Button } from '@/components/ui/Button';
 import { Product, ProductColor } from '@/types';
 
 interface ProductVariantSelectorProps {
@@ -35,10 +36,12 @@ export const ProductVariantSelector: React.FC<ProductVariantSelectorProps> = ({
           </div>
           <div className="flex items-center gap-2">
             {product.colors.map((color) => (
-              <button
+              <Button
                 key={color.hex}
                 type="button"
                 onClick={() => setSelectedColor(color)}
+                variant="outline"
+                size="icon"
                 className={`w-7 h-7 rounded-full border-2 p-0.5 transition-all flex items-center justify-center cursor-pointer ${
                   selectedColor.hex === color.hex ? 'border-primary scale-110' : 'border-border-token'
                 }`}
@@ -52,7 +55,7 @@ export const ProductVariantSelector: React.FC<ProductVariantSelectorProps> = ({
                     <Check className={`w-3 h-3 ${color.hex === '#FFFFFF' || color.hex === '#F8F9FA' ? 'text-black' : 'text-white'}`} />
                   )}
                 </span>
-              </button>
+              </Button>
             ))}
           </div>
         </div>
@@ -71,18 +74,20 @@ export const ProductVariantSelector: React.FC<ProductVariantSelectorProps> = ({
           </div>
           <div className="flex flex-wrap gap-2">
             {product.sizes.map((size) => (
-              <button
+              <Button
                 key={size}
                 type="button"
                 onClick={() => setSelectedSize(size)}
+                variant={selectedSize === size ? 'primary' : 'outline'}
+                size="sm"
                 className={`min-w-8 h-7 px-2.5 sm:min-w-9 sm:h-8 rounded-button border text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                   selectedSize === size
-                    ? 'bg-transparent text-primary border-primary ring-1 ring-primary'
-                    : 'bg-transparent text-app-text border-border-token hover:border-app-muted'
+                    ? 'text-primary border-primary ring-1 ring-primary'
+                    : 'text-app-text border-border-token hover:border-app-muted'
                 }`}
               >
                 {size}
-              </button>
+              </Button>
             ))}
           </div>
         </div>

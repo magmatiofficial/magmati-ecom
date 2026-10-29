@@ -12,6 +12,7 @@ import { Trash2, Plus, Minus, Check } from 'lucide-react';
 import { CartItem } from '@/types';
 import { formatBDT } from '@/lib/formatCurrency';
 import { getProductDisplayImage } from '@/lib/mediaUtils';
+import { Button } from '@/components/ui/Button';
 
 export interface CartItemRowProps {
   item: CartItem;
@@ -36,19 +37,21 @@ export function CartItemRow({
     <div className={`py-4 flex gap-3 sm:gap-3.5 items-start transition-opacity duration-200 ${isSelected ? 'opacity-100' : 'opacity-65 bg-zinc-50/50 rounded-xl px-2'}`}>
       {/* Checkbox for Item Selection */}
       {onToggleSelect && (
-        <button
+        <Button
           type="button"
           disabled={item.isFreeItem}
           onClick={() => onToggleSelect(item.product.id, item.selectedSize, item.selectedColor.hex)}
+          variant="outline"
+          size="icon"
           className={`mt-6 w-5 h-5 rounded-md border flex items-center justify-center shrink-0 transition-all cursor-pointer disabled:opacity-50 ${
-            isSelected 
-              ? 'bg-primary border-primary text-white shadow-xs' 
+            isSelected
+              ? 'bg-primary border-primary text-white shadow-xs'
               : 'border-zinc-300 bg-white hover:border-zinc-400'
           }`}
           aria-label={isSelected ? 'Deselect item' : 'Select item'}
         >
           {isSelected && <Check className="w-3.5 h-3.5 stroke-[3]" />}
-        </button>
+        </Button>
       )}
 
       {/* Thumbnail */}
@@ -108,15 +111,17 @@ export function CartItemRow({
               </>
             )}
           </div>
-          <button
+          <Button
             type="button"
             disabled={item.isFreeItem}
             onClick={() => onRemove(item.product.id, item.selectedSize, item.selectedColor.hex)}
+            variant="ghost"
+            size="icon"
             className="text-app-muted hover:text-primary transition-colors p-1 -mr-1 shrink-0 disabled:opacity-30 disabled:cursor-not-allowed"
             aria-label="Remove item"
           >
             <Trash2 className="w-3.5 h-3.5" />
-          </button>
+          </Button>
         </div>
 
         <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-eyebrow text-app-muted mt-1 min-w-0">
@@ -134,31 +139,35 @@ export function CartItemRow({
         <div className="flex items-center justify-between mt-3">
           {/* Quantity Stepper */}
           <div className="flex items-center border border-border-token rounded-lg bg-surface-subtle px-1 py-0.5">
-            <button
+            <Button
               type="button"
               disabled={item.isFreeItem || item.isComboItem}
               onClick={() =>
                 onUpdateQuantity(item.product.id, item.selectedSize, item.selectedColor.hex, item.quantity - 1)
               }
+              variant="ghost"
+              size="sm"
               className="p-1 text-app-muted hover:text-app-text transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
               aria-label="Decrease quantity"
             >
               <Minus className="w-3 h-3" />
-            </button>
+            </Button>
             <span className="w-6 text-center font-mono text-xs font-bold text-app-text">
               {item.quantity}
             </span>
-            <button
+            <Button
               type="button"
               disabled={item.isFreeItem || item.isComboItem}
               onClick={() =>
                 onUpdateQuantity(item.product.id, item.selectedSize, item.selectedColor.hex, item.quantity + 1)
               }
+              variant="ghost"
+              size="sm"
               className="p-1 text-app-muted hover:text-app-text transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
               aria-label="Increase quantity"
             >
               <Plus className="w-3 h-3" />
-            </button>
+            </Button>
           </div>
 
           {/* Line item subtotal */}

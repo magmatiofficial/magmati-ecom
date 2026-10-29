@@ -23,6 +23,7 @@ import { useAdminSidebarCounts } from '@/hooks/useAdminSidebarCounts';
 import { useAdminReturnsBadge } from '@/hooks/useAdminReturnsBadge';
 import { useAdminOrderChangeStore } from '@/store/useAdminOrderChangeStore';
 import { useAdminReturnChangeStore } from '@/store/useAdminReturnChangeStore';
+import { Button } from '@/components/ui/Button';
 import { useAdminUsersBadge } from '@/hooks/useAdminUsersBadge';
 import { useAdminUserChangeStore } from '@/store/useAdminUserChangeStore';
 
@@ -330,7 +331,13 @@ export function AdminDashboard({ state }: AdminDashboardProps) {
               <span className="text-2xs text-text-muted font-mono tracking-tight block">Administrator Portal</span>
             </div>
           </div>
-          <button type="button" onClick={() => setMobileNavOpen(false)} className="p-1 text-text-muted hover:text-text-main cursor-pointer">✕</button>
+          <Button
+            type="button"
+            onClick={() => setMobileNavOpen(false)}
+            className="p-1 text-text-muted hover:text-text-main cursor-pointer"
+          >
+            ✕
+          </Button>
         </div>
 
         <div className="flex-1 overflow-y-auto p-3 space-y-1 bg-white text-text-main">

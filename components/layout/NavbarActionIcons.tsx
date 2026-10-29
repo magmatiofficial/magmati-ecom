@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ShoppingBag, Heart, User } from 'lucide-react';
+import { Button } from '@/components/ui/Button';
 import { formatBDT } from '@/lib/formatCurrency';
 
 interface NavbarActionIconsProps {
@@ -25,9 +26,10 @@ export const NavbarActionIcons: React.FC<NavbarActionIconsProps> = ({
   return (
     <div className="flex items-center gap-2 shrink-0">
       {/* Cart Total Badge Button */}
-      <button
+      <Button
         type="button"
         onClick={openCart}
+        variant="outline"
         className="group flex items-center gap-2.5 px-2.5 py-1 rounded-button bg-white hover:bg-primary-light/50 border border-zinc-200/90 hover:border-primary/40 shadow-2xs hover:shadow-xs transition-all duration-200 active:scale-98 cursor-pointer"
         aria-label="Shopping Cart"
       >
@@ -52,12 +54,13 @@ export const NavbarActionIcons: React.FC<NavbarActionIconsProps> = ({
             {mounted ? formatBDT(totalCartPrice) : formatBDT(0)}
           </span>
         </div>
-      </button>
+      </Button>
 
       {/* Wishlist */}
-      <button
+      <Button
         type="button"
         onClick={openWishlist}
+        variant="ghost"
         className="relative p-2 text-zinc-700 hover:text-primary transition-all group rounded-xl hover:bg-primary-light/60 border border-transparent hover:border-primary/20 cursor-pointer"
         aria-label="Wishlist"
         title={'Wishlist'}
@@ -68,7 +71,7 @@ export const NavbarActionIcons: React.FC<NavbarActionIconsProps> = ({
             {totalWishlistItems}
           </span>
         )}
-      </button>
+      </Button>
 
       {/* Account */}
       <Link
