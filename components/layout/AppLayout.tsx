@@ -197,7 +197,7 @@ export function AppLayout({ children }: AppLayoutProps) {
   }, [isAdminPage, pathname]);
 
   return (
-    <div className="flex flex-col min-h-dvh bg-app-bg">
+    <div className="flex flex-col min-h-screen bg-app-bg">
       {currentUser?.impersonatingFromAdminEmail && (
         <div className="bg-amber-400 text-zinc-950 font-bold text-xs py-2.5 px-4 sticky top-0 z-50 flex items-center justify-between shadow-md border-b border-amber-500 font-sans">
           <div className="flex items-center gap-2">
