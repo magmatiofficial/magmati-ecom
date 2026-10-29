@@ -345,6 +345,12 @@ export function useAccountState() {
   const [prodShowNewBadge, setProdShowNewBadge] = useState(true);
   const [prodAllowedPaymentMethods, setProdAllowedPaymentMethods] = useState<('cod' | 'bkash' | 'nagad' | 'card')[]>(['cod', 'bkash', 'nagad', 'card']);
   const [prodBestDealSectionId, setProdBestDealSectionId] = useState<string>('');
+  const [prodTaxStatus, setProdTaxStatus] = useState<'taxable' | 'non_taxable' | 'shipping_only'>('taxable');
+  const [prodTaxClass, setProdTaxClass] = useState<string>('');
+  const [prodCostPrice, setProdCostPrice] = useState<number | undefined>(undefined);
+  const [prodWholesalePrice, setProdWholesalePrice] = useState<number | undefined>(undefined);
+  const [prodWholesaleMinQty, setProdWholesaleMinQty] = useState<number | undefined>(undefined);
+  const [prodPricePerUnitLabel, setProdPricePerUnitLabel] = useState<string>('');
 
   // New Category form fields
   const [newCatName, setNewCatName] = useState('');
@@ -615,6 +621,12 @@ export function useAccountState() {
     setProdShowNewBadge(true);
     setProdAllowedPaymentMethods(['cod', 'bkash', 'nagad', 'card']);
     setProdBestDealSectionId('');
+    setProdTaxStatus('taxable');
+    setProdTaxClass('');
+    setProdCostPrice(undefined);
+    setProdWholesalePrice(undefined);
+    setProdWholesaleMinQty(undefined);
+    setProdPricePerUnitLabel('');
     setProductModalOpen(true);
   };
 
@@ -656,6 +668,12 @@ export function useAccountState() {
     setProdShowNewBadge(product.showNewBadge ?? true);
     setProdAllowedPaymentMethods(product.allowedPaymentMethods || ['cod', 'bkash', 'nagad', 'card']);
     setProdBestDealSectionId(product.bestDealSectionId || '');
+    setProdTaxStatus((product as any).taxStatus || 'taxable');
+    setProdTaxClass((product as any).taxClass || '');
+    setProdCostPrice(product.cost_price ?? (product as any).costPrice);
+    setProdWholesalePrice((product as any).wholesalePrice);
+    setProdWholesaleMinQty((product as any).wholesaleMinQty);
+    setProdPricePerUnitLabel((product as any).pricePerUnitLabel || '');
     setProductModalOpen(true);
   };
 
@@ -739,6 +757,12 @@ export function useAccountState() {
       showNewBadge: prodShowNewBadge,
       allowedPaymentMethods: prodAllowedPaymentMethods,
       bestDealSectionId: prodBestDealSectionId || undefined,
+      cost_price: prodCostPrice,
+      taxStatus: prodTaxStatus,
+      taxClass: prodTaxClass || undefined,
+      wholesalePrice: prodWholesalePrice,
+      wholesaleMinQty: prodWholesaleMinQty,
+      pricePerUnitLabel: prodPricePerUnitLabel || undefined,
     };
 
     if (isSavingProduct) return;
@@ -1226,6 +1250,18 @@ export function useAccountState() {
     setProdAllowedPaymentMethods,
     prodBestDealSectionId,
     setProdBestDealSectionId,
+    prodTaxStatus,
+    setProdTaxStatus,
+    prodTaxClass,
+    setProdTaxClass,
+    prodCostPrice,
+    setProdCostPrice,
+    prodWholesalePrice,
+    setProdWholesalePrice,
+    prodWholesaleMinQty,
+    setProdWholesaleMinQty,
+    prodPricePerUnitLabel,
+    setProdPricePerUnitLabel,
     newCatName,
     setNewCatName,
     newCatImage,
