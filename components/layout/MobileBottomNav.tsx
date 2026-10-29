@@ -34,10 +34,7 @@ export function MobileBottomNav() {
   const isAccountActive = pathname === '/account' || pathname?.startsWith('/account');
 
   return (
-    <div 
-      style={{ transform: 'none' }}
-      className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-zinc-200 shadow-[0_-2px_10px_rgba(0,0,0,0.05)]"
-    >
+    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-zinc-200 shadow-[0_-2px_10px_rgba(0,0,0,0.05)] gpu-accelerated">
       <nav className="grid grid-cols-6 items-center h-14 px-0.5 sm:px-2">
         
         {/* 1. Home */}
